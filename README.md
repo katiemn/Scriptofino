@@ -79,6 +79,7 @@ python
 while y > 3:
 ```
 ### Sample Programs
+examples in ScriptoFino with JavaScript "translation"
 ```
 la x = 10
 si verdad:
