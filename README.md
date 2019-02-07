@@ -13,6 +13,6 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 - Easy to Read
 - Function Indentation
 - Dynamic Typing 
-- Easy to learn 
+- Easy to Learn 
 
 
