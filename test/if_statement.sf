@@ -1,0 +1,4 @@
+la x = 10
+si verdad:
+    la x = x + 5
+    imprimir(x)

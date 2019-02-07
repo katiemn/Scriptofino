@@ -1,0 +1,2 @@
+llama hello_word():
+    imprimir("Hello world")
