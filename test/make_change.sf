@@ -6,7 +6,6 @@ llama make_change(amount):
         echar nuevo Error('Amount cannot be negative')
 
     la initAmount = amount
-    la newAmount
 
     la quarters = piso(initAmount/25)
     newAmount = initAmount % 25
