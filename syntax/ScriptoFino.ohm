@@ -1,0 +1,74 @@
+Scriptofino {
+  Program     =  newline* Stmt+ newline*
+  Stmt        =  SimpleStmt newline                          -- simple
+              |  "mientras" Exp Suite                        -- while
+              |  "si" "("Exp")" Suite
+                 ("sinosi" Exp Suite)*
+                 ("sino" Suite)?                             -- if
+              |  "llama" id "(" Params ")" Suite             -- def
+              |  "para" id "en" Exps Suite                   -- for
+              |  "echar nuevo Error" "(" strlit ")" newline  -- error 
+  SimpleStmt  =  "la" id "=" Exp                             -- vardecl
+              |  VarExps "=" Exps                            -- assign
+              |  Call                                        -- call
+              |  "break"                                     -- break
+              |  "regresa" Exp?                              -- return
+  Suite       = ":" SimpleStmt newline                       -- small
+              | ":" newline indent Stmt+ dedent              -- large
+              
+
+  Exp         =  Exp "oo" Exp1                               -- or
+              |  Exp "yy" Exp1                               -- and
+              |  Exp1
+  Exp1        =  Exp2 relop Exp2                             -- binary
+              |  Exp2
+  Exp2        =  Exp2 addop Exp3                             -- binary
+              |  Exp3
+  Exp3        =  Exp3 mulop Exp4                             -- binary
+              |  Exp4
+  Exp4        =  prefixop Exp5                               -- unary
+              |  Exp5
+  Exp5        = Exp5 "^" Exp6                                -- power
+              | Exp6                             
+  Exp6        =  boollit
+              |  numlit
+              |  strlit
+              |  "[" ListOf<Exp, ","> "]"                    -- list
+              |  Call
+              |  VarExp
+              |  "(" Exp ")"                                 -- parens
+  Call        =  VarExp "(" Args ")"
+
+  Exps        =  NonemptyListOf<Exp, ",">
+  Ids         =  NonemptyListOf<id, ",">
+  VarExp      =  VarExp "[" Exp "]"                          -- subscripted
+              |  id                                          -- simple
+  VarExps     =  NonemptyListOf<VarExp, ",">
+  Param       =  id ("=" Exp)?
+  Params      =  ListOf<Param, ",">
+  Arg         =  (id ":")? Exp
+  Args        =  ListOf<Arg, ",">
+
+  keyword     =  ("mientras" | "si" | "sinosi" | "sino" | "llama" | "la" | "regresa"
+              |  "break" | "yy" | "oo" | "no" | "verdad" | "falso" | "echar nuevo Error") ~idrest
+  id          =  ~keyword ("_" | letter) idrest*
+  idrest      =  "_" | alnum
+  numlit      =  digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
+  boollit     =  "verdad" | "falso"
+  strlit      = "\"" (~"\\" ~"\"" ~"\n" any | escape)* "\""
+  escape      = "\\" ("\\" | "\"" | "n")                     -- simple
+              | "\\u{" hexDigit+ "}"                         -- codepoint
+  addop       =  "+" | "-"
+  relop       =  "<=" | "<" | "es" | "no es" | ">=" | ">"
+  mulop       =  "*" | "/" | "%"
+  prefixop    =  "-" | "not"
+  indent      =  "⇨"
+  dedent      =  "⇦"
+
+  newline     =  "\n"+
+  space      :=  " " | "\t" | comment
+  comment     =  "#" (~"\n" any)*
+}
+
+
+

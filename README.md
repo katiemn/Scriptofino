@@ -19,17 +19,17 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 #### Variable Declarations
 
 ```
-String name           -> la name = 'name'
+String name           -> la name = "name"
 number age            -> la age = 21
 boolean is_true       -> la is_true = verdad
 ```
 
 #### Types
 ```
-* boolean: `verdad`, `falso`
-* num: `1`, `-382`, `3.0`
-* string: `'hello'`, `'sofia'`, `'scriptofino is cool!'`
-* list: `['hello', 'this', 'is', 'a', 'list']` , `[3, 2, 1]`
+* boolean: verdad, falso
+* num: 1, -382, 3.0
+* string: "hello", "sofia", "scriptofino is cool!"
+* list: ['hello', 'this', 'is', 'a', 'list'] , [3, 2, 1]
 ```
 #### Arithmetic
 ```
@@ -45,7 +45,7 @@ modulus = 11 % 2
 ##### `if` statements
 scriptofino
 ```
-si (num == 3):
+si (num es 3):
 
 si (verdad):
 ```
@@ -82,7 +82,7 @@ while y > 3:
 examples in ScriptoFino with JavaScript "translation"
 ```
 la x = 10
-si verdad:
+si (verdad):
     la x = x + 5
     imprimir(x)
 ```
@@ -107,7 +107,7 @@ function add(a, b){
 
 ```
 llama fib(x):
-    si x > 0:
+    si (x > 0):
         regresa fib(x-1)
     sino: 
         regresa x
@@ -123,7 +123,7 @@ myRecursiveFunction = (n) => {
 
 ```
 llama is_even(number):
-    si (number % 2 == 0):
+    si (number % 2 es 0):
         regresa verdad
     sino:
         regresa falso
@@ -139,23 +139,23 @@ function isEven(number){
 
 ```
 llama make_change(amount):
-    si (amount = 0):
+    si (amount es 0):
         regresa [0, 0, 0, 0]
     
     si (amount < 0):
-        echar nuevo Error('Amount cannot be negative')
+        echar nuevo Error("Amount cannot be negative")
 
     la initAmount = amount
-    la newAmount
+    la newAmount = 0
 
     la quarters = piso(initAmount/25)
     newAmount = initAmount % 25
 
     la dimes = piso(newAmount/10)
-    newAmount %= 10
+    newAmount = newAmount % 10
 
     la nickels = piso(newAmount/5)
-    newAmount %= 5
+    newAmount = newAmount % 5
 
     la pennies = newAmount;
 
