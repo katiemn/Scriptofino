@@ -1,0 +1,22 @@
+Scriptofino {
+    Program = Block
+    Block = Statement+
+    Statement = "la"
+    Type = "num" | ""
+    Exp = Exp o Exp1 | Exp1
+    Exp1 = 
+
+
+    boolLit = "verdad" | "false"
+    intLit = 
+    stringLit
+    nullLit = "nada"
+
+    keyword = ()
+
+    id = 
+
+    space += comment
+    comment = "¡!" (~"\n" any)* "!¡
+
+}
