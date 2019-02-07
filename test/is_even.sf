@@ -1,0 +1,5 @@
+llama is_even(number):
+    si (number % 2 == 0):
+        regresa verdad
+    sino:
+        regresa falso

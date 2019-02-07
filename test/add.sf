@@ -1,0 +1,2 @@
+llama add(a, b):
+    regresa a + b

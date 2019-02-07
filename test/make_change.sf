@@ -1,0 +1,22 @@
+llama make_change(amount):
+    si (amount = 0):
+        regresa [0, 0, 0, 0]
+    
+    si (amount < 0):
+        echar nuevo Error('Amount cannot be negative')
+
+    la initAmount = amount
+    la newAmount
+
+    la quarters = piso(initAmount/25)
+    newAmount = initAmount % 25
+
+    la dimes = piso(newAmount/10)
+    newAmount %= 10
+
+    la nickels = piso(newAmount/5)
+    newAmount %= 5
+
+    la pennies = newAmount;
+
+    regresa [quarters, dimes, nickels, pennies]
