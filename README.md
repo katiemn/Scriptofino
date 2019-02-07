@@ -1,4 +1,5 @@
-![alt text](scriptofino-logo.png)
+<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/scriptofino-logo.png" width=100 height=100>
+
 # ScriptoFino
 
 *Katie, Sofia, Merci, Jimmy, Sam, & Ronald*
