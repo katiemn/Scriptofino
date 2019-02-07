@@ -1,3 +1,4 @@
+![alt text](scriptofino-logo.png)
 # ScriptoFino
 
 *Katie, Sofia, Merci, Jimmy, Sam, & Ronald*
