@@ -1,20 +1,21 @@
 llama make_change(amount):
-    si (amount = 0):
+    si (amount es 0):
         regresa [0, 0, 0, 0]
     
     si (amount < 0):
-        echar nuevo Error('Amount cannot be negative')
+        echar nuevo Error("Amount cannot be negative")
 
     la initAmount = amount
+    la newAmount  = 0
 
     la quarters = piso(initAmount/25)
     newAmount = initAmount % 25
 
     la dimes = piso(newAmount/10)
-    newAmount %= 10
+    newAmount = newAmount % 10
 
     la nickels = piso(newAmount/5)
-    newAmount %= 5
+    newAmount = newAmount % 5
 
     la pennies = newAmount;
 

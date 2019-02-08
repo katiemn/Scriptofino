@@ -23,7 +23,7 @@
     "yargs": "^10.1.1"
   },
   "devDependencies": {
-    "esling-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "jest": "^22.4.4",
