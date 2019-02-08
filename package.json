@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "jest test/**/*test.js"
+    "test": "mocha test/**/*test.js"
   },
   "jest": {
     "transform": {}
@@ -19,6 +19,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "fs": "0.0.1-security",
+    "mocha": "^5.2.0",
+    "ohm": "^0.10.4",
     "yargs": "^10.1.1"
   },
   "devDependencies": {

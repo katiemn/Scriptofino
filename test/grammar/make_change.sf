@@ -17,6 +17,6 @@ llama make_change(amount):
     la nickels = piso(newAmount/5)
     newAmount = newAmount % 5
 
-    la pennies = newAmount;
+    la pennies = newAmount
 
     regresa [quarters, dimes, nickels, pennies]

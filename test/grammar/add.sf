@@ -1,2 +1,2 @@
-llama add(a, b):
+llama add(a,b):
     regresa a + b
