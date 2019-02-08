@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/scriptofino-logo.png" width=100 height=100>
+<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/final-scriptofino-logo.png" width=125 height=100>
 
 # ScriptoFino
 
