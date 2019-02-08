@@ -1,9 +1,7 @@
 /*
- * Grammar Tests
+ * from https://github.com/rtoal/plainscript/blob/master/test/grammar/grammar-test.js
  *
- * Tests that the we've constructed our grammar correctly, by checking that
- * programs that we expect to be matched by the grammar are matched, and
- * those that we expect not to cause an error to be thrown.
+ * Grammar Tests
  */
 
 const fs = require('fs');

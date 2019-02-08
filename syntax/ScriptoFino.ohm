@@ -16,7 +16,6 @@ Scriptofino {
   Suite       = ":" SimpleStmt newline                       -- small
               | ":" newline indent Stmt+ dedent              -- large
               
-
   Exp         =  Exp "oo" Exp1                               -- or
               |  Exp "yy" Exp1                               -- and
               |  Exp1
@@ -67,7 +66,7 @@ Scriptofino {
 
   newline     =  "\n"+
   space      :=  " " | "\t" | comment
-  comment     =  "#" (~"\n" any)*
+  comment     =  "¡!" (~"\n" any)*
 }
 
 

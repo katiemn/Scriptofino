@@ -1,4 +1,4 @@
-// Borrowed from https://github.com/rtoal/plainscript/blob/master/syntax/preparser.js
+// From https://github.com/rtoal/plainscript/blob/master/syntax/preparser.js
 
 /*
  * Preparser module
