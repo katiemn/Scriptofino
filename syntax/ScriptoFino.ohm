@@ -1,17 +1,14 @@
 Scriptofino {
   Program     =  newline* Stmt+ newline*
   Stmt        =  SimpleStmt newline                          -- simple
-              |  "mientras" Exp Suite                        -- while
-              |  "si" "("Exp")" Suite
-                 ("sinosi" Exp Suite)*
-                 ("sino" Suite)?                             -- if
-              |  "llama" id "(" Params ")" Suite             -- def
-              |  "para" id "en" Exps Suite                   -- for
-              |  "echar nuevo Error" "(" strlit ")" newline  -- error 
-  SimpleStmt  =  "la" id "=" Exp                             -- vardecl
-              |  VarExps "=" Exps                            -- assign
-              |  Call                                        -- call
-              |  "break"                                     -- break
+              |  Loop                                                            
+              |  Conditional                                 
+              |  FuncCall                                    
+              |  Error                                       
+  SimpleStmt  =  VarDeclar                                   
+              |  Assignment                                  
+              |  Call                                        
+              |  "rompa"                                     -- break
               |  "regresa" Exp?                              -- return
   Suite       = ":" SimpleStmt newline                       -- small
               | ":" newline indent Stmt+ dedent              -- large
@@ -36,7 +33,20 @@ Scriptofino {
               |  Call
               |  VarExp
               |  "(" Exp ")"                                 -- parens
+              
+  Loop        =  For | While 
+  For         =  "para" id "en" Exps Suite           
+  While       =  "mientras" Exp Suite
+  Conditional =  "si" "("Exp")" Suite ("sinosi" Exp Suite)* ("sino" Suite)? 
+  FuncCall    =  "llama" id "("Params")" Suite
+  Error       =  "echar nuevo Error" "("strlit")" newline
+  
+  VarDeclar   =  VarConst | VarMutable
+  VarConst    =  "el" id "=" Exp
+  VarMutable  =  "la" id "=" Exp
+  Assignment  =  VarExps "=" Exps
   Call        =  VarExp "(" Args ")"
+ 
 
   Exps        =  NonemptyListOf<Exp, ",">
   Ids         =  NonemptyListOf<id, ",">
@@ -66,8 +76,7 @@ Scriptofino {
 
   newline     =  "\n"+
   space      :=  " " | "\t" | comment
-  comment     =  "¡!" (~"\n" any)*
+  comment     = "¡" ~"¡" (~"\n" ~"¡" any)*                   -- comment
+              |  multiline
+  multiline   = "¡!" (~"¡!" any)* "¡!"                         
 }
-
-
-
