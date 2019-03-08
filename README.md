@@ -12,25 +12,38 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 - Spanish Keywords
 - Easy to Read
 - Function Indentation
-- Dynamic Typing 
+- Function Annotations
 - Easy to Learn 
 
 ## Examples
-#### Variable Declarations
-
-```
-String name           -> la name = "name"
-number age            -> la age = 21
-boolean is_true       -> la is_true = verdad
-```
 
 #### Types
+* boolean: ```verdad, falso```
+* num: ```1, -382, 3.0```
+* string: ```"hello", "sofia", "¡scriptofino is cool!"```
+* list: ```["hello", "this", "is", "a", "list"] , [3, 2, 1]```
+* dictionary: ```{"Hello": "Hola", "Goodbye": "Adiós"}```
+* tuple: ```(9, 22, "rojo")```
+
+#### Variable Declarations
 ```
-* boolean: verdad, falso
-* num: 1, -382, 3.0
-* string: "hello", "sofia", "scriptofino is cool!"
-* list: ['hello', 'this', 'is', 'a', 'list'] , [3, 2, 1]
+string name           -> la name = "name"
+num age               -> la age = 21
+boolean is_true       -> la is_true = verdad
+mutable binding       -> la emotion = "feliz"
+immutable binding     -> el número = 3
 ```
+
+#### Comments
+```
+¡ This is a comment
+
+¡! 
+This is a multiline 
+comment 
+¡!
+```
+
 #### Arithmetic
 ```
 sum = 3 + 7
@@ -42,42 +55,45 @@ modulus = 11 % 2
 ```
 
 #### Control Flow
-##### `if` statements
-scriptofino
+
+##### `if` Statements
+ScriptoFino
 ```
 si (num es 3):
 
 si (verdad):
 ```
-python
+Python
 ```
 if (num == 3):
 
 if (True):
 ```
-##### `for` loops 
-scriptofino
+
+##### `for` Loops 
+ScriptoFino
 ```
 para i en rango(1, 100):
 
 para num en numeros:
 ```
-python
+Python
 ```
 for i in range(1, 100):
 
 for num in numbers:
 ```
-##### `while` loops
-scriptofino
+
+##### `while` Loops
+ScriptoFino
 ```
 mientras y > 3:
 ```
-
-python
+Python
 ```
 while y > 3:
 ```
+
 ### Sample Programs
 examples in ScriptoFino with JavaScript "translation"
 ```
@@ -86,8 +102,8 @@ si (verdad):
     la x = x + 5
     imprimir(x)
 ```
-
 ```
+hello_world: nada -> string
 llama hello_word():
     imprimir("Hello world")
 
@@ -97,6 +113,7 @@ function helloWorld(){
 ```
 
 ```
+add: num, num -> num
 llama add(a, b):
     regresa a + b
 
@@ -106,6 +123,7 @@ function add(a, b){
 ```
 
 ```
+fib: num -> num
 llama fib(x):
     si (x > 0):
         regresa fib(x-1)
@@ -122,6 +140,7 @@ myRecursiveFunction = (n) => {
 ```
 
 ```
+is_even: num -> boolean
 llama is_even(number):
     si (number % 2 es 0):
         regresa verdad
@@ -138,6 +157,7 @@ function isEven(number){
 ```
 
 ```
+make_change: num -> lista(num)
 llama make_change(amount):
     si (amount es 0):
         regresa [0, 0, 0, 0]
@@ -165,27 +185,27 @@ llama make_change(amount):
 function makeChange(amount){
     
     if (amount === 0) {
-    return [0, 0, 0, 0];
-  }
+        return [0, 0, 0, 0];
+    }
 
-  if (amount < 0) {
-    throw new RangeError('Amount cannot be negative');
-  }
+    if (amount < 0) {
+        throw new RangeError('Amount cannot be negative');
+    }
 
-  const initAmount = amount;
-  let newAmount;
+    const initAmount = amount;
+    let newAmount;
 
-  const quarters = Math.floor(initAmount / 25);
-  newAmount = initAmount % 25;
+    const quarters = Math.floor(initAmount / 25);
+    newAmount = initAmount % 25;
 
-  const dimes = Math.floor(newAmount / 10);
-  newAmount %= 10;
+    const dimes = Math.floor(newAmount / 10);
+    newAmount %= 10;
 
-  const nickels = Math.floor(newAmount / 5);
-  newAmount %= 5;
+    const nickels = Math.floor(newAmount / 5);
+    newAmount %= 5;
 
-  const pennies = newAmount;
+    const pennies = newAmount;
 
-  return [quarters, dimes, nickels, pennies];
+    return [quarters, dimes, nickels, pennies];
 }
 ```
