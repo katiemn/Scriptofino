@@ -1,0 +1,3 @@
+si (x es 2):
+    echar nuevo Error ("el número es incorrecto")
+

@@ -1,0 +1,19 @@
+{
+    "statements": [{
+        "ids": "lista",
+        "initializers": {
+            "members": [{
+                "expression": {"value": "\"Hola\""},
+                "id": { "value": "\"Hello\""}
+            },
+            {
+                "expression": {"value": "\"Adiós\""},
+                "id": { "value": "\"Goodbye\""}
+            },
+            {
+                "expression": {"value": "\"Bienvenido\""},
+                "id": { "value": "\"Welcome\""}
+            }]
+        }
+    }]
+}

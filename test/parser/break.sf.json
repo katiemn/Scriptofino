@@ -1,0 +1,12 @@
+{
+    "statements": [{
+        "test": {"left": { "id": "x" }, "op": "no es", "right": { "value": 10 }},
+        "body": [{
+            "cases": [{
+                "test": {"op": "es", "left": { "id": "x" }, "right": { "value": 4 }},
+                "body": [{}]
+            }],
+            "alternate": null
+        }]
+    }]
+}

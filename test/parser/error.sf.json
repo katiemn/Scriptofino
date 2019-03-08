@@ -1,0 +1,9 @@
+{
+    "statements": [{
+        "cases": [{
+            "test": {"op": "es", "left": { "id": "x" }, "right": { "value": 2 }},
+            "body": [{"value": {"value": "\"el número es incorrecto\""}}]
+        }],
+        "alternate": null
+    }]
+}

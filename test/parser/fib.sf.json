@@ -1,0 +1,57 @@
+{
+    "statements": [
+      {
+        "annotation": {"id": "fib", "paramTypes": ["num"], "resultTypes": ["num"]},
+        "function": {
+          "id": "fib",
+          "paramTypes": ["num"],
+          "params": [{"defaultExpression": null, "id": "n" } ],
+          "resultTypes": ["num"],
+          "suite":[
+            {"ids": "a", "initializers": { "value": 0 }},
+            {"ids": "b", "initializers": { "value": 1 }},
+            {
+              "body": [
+                {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},
+                {"sources": [ {"left": { "id": "a" }, "op": "+", "right": { "id": "b" }}], "targets": [{"id": "b"}]}
+              ],
+                "test": {"left": {"id": "b"}, "op": "<", "right": {"id": "n"}}
+            }, 
+            {"returnValue": {"id": "a"}}
+          ]
+        },
+        "id": "fib",
+        "params": [{"defaultExpression": null, "id": "n" } ],
+        "suite":[
+          {"ids": "a", "initializers": { "value": 0 }},
+          {"ids": "b", "initializers": { "value": 1 }},
+          {
+            "body": [
+              {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},
+              {"sources": [ {"left": { "id": "a" }, "op": "+", "right": { "id": "b" }}], "targets": [{"id": "b"}]}
+            ],
+              "test": {"left": {"id": "b"}, "op": "<", "right": {"id": "n"}}
+          }, 
+          {"returnValue": {"id": "a"}}
+        ]
+      },
+      {
+        "call": {
+          "callee": {"id": "imprimir"},
+          "args": [{
+              "id": null,
+              "expression": {"callee": {"id": "fib"}, "args": [{"id": null, "expression": {"value": 5}}]}
+          }]
+        }
+      },
+      {
+        "call": {
+          "callee": {"id": "imprimir"},
+          "args": [{
+              "id": null,
+              "expression": {"callee": {"id": "fib"}, "args": [{"id": null, "expression": {"value": 10}}]}
+            }]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,23 @@
+{
+    "statements": [
+        {
+            "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"listType": "num"}]},
+            "function": {
+                "id": "list",
+                "paramTypes": ["num"],
+                "params": [{"defaultExpression": null, "id": "x" }],
+                "resultTypes": [{"listType": "num"}],
+                "suite":[
+                    {"ids": "list", "initializers": { "members": [{"id": "x"}, {"id": "x"}, {"id": "x"}]}},
+                    { "returnValue": {"subscript": {"value": 1}, "variable": {"id": "list"}}}
+                ]
+            },
+            "id": "list",
+            "params": [{"defaultExpression": null, "id": "x"}],
+            "suite":[
+                {"ids": "list", "initializers": {"members": [{"id": "x"}, {"id": "x"}, {"id": "x"}]}},
+                {"returnValue": {"subscript": {"value": 1}, "variable": {"id": "list"}}}
+            ]
+        }
+    ]
+}

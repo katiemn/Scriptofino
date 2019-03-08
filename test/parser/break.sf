@@ -1,0 +1,3 @@
+mientras x no es 10:
+    si (x es 4):
+        rompe

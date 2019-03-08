@@ -1,3 +1,4 @@
+make_change: num -> lista(num)
 llama make_change(amount):
     si (amount es 0):
         regresa [0, 0, 0, 0]

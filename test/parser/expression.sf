@@ -1,0 +1,4 @@
+el x = 0
+la y = 0
+si (x es 0 yy y es 0):
+    y = 3 ^ 4 + 22

@@ -3,12 +3,12 @@ Scriptofino {
   Stmt        =  SimpleStmt newline                          -- simple
               |  Loop                                                            
               |  Conditional                                 
-              |  FuncCall                                    
+              |  FuncDec                                    
               |  Error                                       
   SimpleStmt  =  VarDeclar                                   
               |  Assignment                                  
-              |  Call                                        
-              |  "rompa"                                     -- break
+              |  Call                                        -- call                                
+              |  "rompe"                                     -- break
               |  "regresa" Exp?                              -- return
   Suite       = ":" SimpleStmt newline                       -- small
               | ":" newline indent Stmt+ dedent              -- large
@@ -30,6 +30,8 @@ Scriptofino {
               |  numlit
               |  strlit
               |  "[" ListOf<Exp, ","> "]"                    -- list
+              |  "{" ListOf<KeyVal, ","> "}"                 -- dictionary 
+              |  "(" NonemptyListOf<Exp, ","> ")"            -- tuple
               |  Call
               |  VarExp
               |  "(" Exp ")"                                 -- parens
@@ -38,7 +40,9 @@ Scriptofino {
   For         =  "para" id "en" Exps Suite           
   While       =  "mientras" Exp Suite
   Conditional =  "si" "("Exp")" Suite ("sinosi" Exp Suite)* ("sino" Suite)? 
-  FuncCall    =  "llama" id "("Params")" Suite
+  FuncDec     =  Annotation newline "llama" id "("Params")" Suite
+  Annotation  =  id ":" ParamType "->" ParamType
+  ParamType   =  NonemptyListOf<Type, ",">
   Error       =  "echar nuevo Error" "("strlit")" newline
   
   VarDeclar   =  VarConst | VarMutable
@@ -47,7 +51,6 @@ Scriptofino {
   Assignment  =  VarExps "=" Exps
   Call        =  VarExp "(" Args ")"
  
-
   Exps        =  NonemptyListOf<Exp, ",">
   Ids         =  NonemptyListOf<id, ",">
   VarExp      =  VarExp "[" Exp "]"                          -- subscripted
@@ -57,8 +60,14 @@ Scriptofino {
   Params      =  ListOf<Param, ",">
   Arg         =  (id ":")? Exp
   Args        =  ListOf<Arg, ",">
+  KeyVal      =  Exp ":" Exp
+  Type        =  ListType | TupleType | DictType | basicType
+  ListType    =  "lista" "("basicType")"
+  TupleType   =  "tuple" "("basicType")"
+  DictType    =  "diccionario" "("basicType")"
 
-  keyword     =  ("mientras" | "si" | "sinosi" | "sino" | "llama" | "la" | "regresa"
+  basicType   =  "string" | "boolean" | "num" | "nada"
+  keyword     =  (basicType | "mientras" | "si" | "sinosi" | "sino" | "llama" | "la" | "regresa"
               |  "break" | "yy" | "oo" | "no" | "verdad" | "falso" | "echar nuevo Error") ~idrest
   id          =  ~keyword ("_" | letter) idrest*
   idrest      =  "_" | alnum

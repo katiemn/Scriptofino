@@ -1,0 +1,4 @@
+list: num -> lista(num)
+llama list (x):
+    la list = [x, x, x]
+    regresa list[1]

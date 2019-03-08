@@ -1,0 +1,8 @@
+{
+    "statements": [
+        {
+            "sources": [{"args": [], "callee": { "id": "triste"}}],
+            "targets": [{"id": "feliz"}]
+        }
+    ]
+}

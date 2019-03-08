@@ -1,2 +1,3 @@
+hello_word: nada -> string
 llama hello_word():
     imprimir("Hello world")
