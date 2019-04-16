@@ -81,7 +81,7 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   KeyVal(id, _,exp) { return new KeyValue(id.ast(), exp.ast()); },
   ListType(_1, _2, type, _3) { return new ListTypeExpression(type.ast()); },
   TupleType(_1, _2, type, _3) { return new TupleTypeExpression(type.ast()); },
-  DictType(_1, _2, type, _3) { return new DictTypeExpression(type.ast()); },
+  DictType(_1, _2, key, _3, value, _4) { return new DictTypeExpression(key.ast(), value.ast()); },
   NonemptyListOf(first, _, rest) { return [first.ast(), ...rest.ast()]; },
   EmptyListOf() { return []; },
   id(_1, _2) { return this.sourceString; },

@@ -3,16 +3,16 @@
         "ids": "lista",
         "initializers": {
             "members": [{
-                "expression": {"value": "\"Hola\""},
-                "id": { "value": "\"Hello\""}
+                "key": { "value": "\"Hello\"" },
+                "value": { "value": "\"Hola\"" }
             },
             {
-                "expression": {"value": "\"Adiós\""},
-                "id": { "value": "\"Goodbye\""}
+                "key": {"value": "\"Goodbye\""},
+                "value": { "value": "\"Adiós\""}
             },
             {
-                "expression": {"value": "\"Bienvenido\""},
-                "id": { "value": "\"Welcome\""}
+                "key": {"value": "\"Welcome\""},
+                "value": { "value": "\"Bienvenido\""}
             }]
         }
     }]

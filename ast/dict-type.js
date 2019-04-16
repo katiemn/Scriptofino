@@ -1,6 +1,6 @@
 const Type = require('./type');
 module.exports = class DictType {
-  constructor(dictType) {
-    Object.assign(this, { dictType });
+  constructor(keyType, valueType) {
+    Object.assign(this, { keyType, valueType });
   }
 };

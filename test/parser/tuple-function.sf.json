@@ -1,0 +1,21 @@
+{
+    "statements": [
+        {
+            "annotation": {"id": "func", "paramTypes": ["num"], "resultTypes": [{"tupleType": ["num","string","num"]}]},
+            "function": {
+                "id": "func",
+                "paramTypes": ["num"],
+                "params": [{"defaultExpression": null, "id": "x" }],
+                "resultTypes": [{"tupleType": ["num","string","num"]}],
+                "suite":[
+                    { "returnValue": { "members": [{"value": 22}, {"id": "hola"}, {"value": "4"}]}}
+                ]
+            },
+            "id": "func",
+            "params": [{"defaultExpression": null, "id": "x"}],
+            "suite":[
+                {"returnValue": { "members": [{"value": 22}, {"id": "hola"}, {"value": "4"}]}}
+            ]
+        }
+    ]
+}

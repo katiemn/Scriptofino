@@ -63,8 +63,8 @@ Scriptofino {
   KeyVal      =  Exp ":" Exp
   Type        =  ListType | TupleType | DictType | basicType
   ListType    =  "lista" "("basicType")"
-  TupleType   =  "tuple" "("basicType")"
-  DictType    =  "diccionario" "("basicType")"
+  TupleType   =  "tuple" "("NonemptyListOf<basicType, ",">")"
+  DictType    =  "diccionario" "("basicType":"basicType")"
 
   basicType   =  "string" | "boolean" | "num" | "nada"
   keyword     =  (basicType | "mientras" | "si" | "sinosi" | "sino" | "llama" | "la" | "regresa"
