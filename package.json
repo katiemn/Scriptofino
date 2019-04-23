@@ -16,19 +16,19 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "cryptiles": ">=4.1.2",
     "fs": "0.0.1-security",
     "mocha": "^5.2.0",
+    "morgan": ">=1.9.1",
+    "ohm": "^1.1.1",
     "ohm-js": "^0.14.0",
-    "ohm": "^0.10.4",
-    "yargs": "^10.1.1",
     "pretty-js": "^0.2.0",
-    "cryptiles": ">=4.1.2",
-    "morgan": ">=1.9.1"
+    "yargs": "^10.1.1"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "jest": "^22.4.4"
+    "jest": "^24.7.1"
   }
 }
