@@ -1,5 +1,5 @@
 {
     "statements": [
-        {"ids": "truth", "initializers": {"id": "true"}}
+        {"ids": "truth", "initializers": {"id": "true"}, "isMutable": true}
     ]
 }

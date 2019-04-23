@@ -1,0 +1,8 @@
+la numeros = [1,2,3]
+la x = 0
+para x en numeros:
+    si (x es 1): 
+        rompe
+mientras verdad:
+    rompe
+rompe

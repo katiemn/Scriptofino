@@ -1,10 +1,8 @@
 {
     "statements": [
       {
-        "call": {
-          "callee": {"id": "imprimir"},
-          "args": [ { "id": null, "expression": {"value": "\"hello\""}} ]
-        }
+        "args": [ { "expression": {"value": "\"hello\""}, "id": null }],
+        "callee": {"id": "imprimir"}
       }
     ]
   }

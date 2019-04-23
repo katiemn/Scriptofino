@@ -1,0 +1,3 @@
+dos: nada -> num
+llama dos ():
+    regresa 2

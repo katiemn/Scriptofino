@@ -1,6 +1,8 @@
 const Type = require('./type');
-module.exports = class ListType {
-  constructor(listType) {
-    Object.assign(this, { listType });
+module.exports = class ListType extends Type {
+  constructor(type) {
+    super('list');
+    this.elementType = type;
+    //Object.assign(this, { listType });
   }
 };

@@ -1,6 +1,6 @@
 {
     "statements": [{
-        "ids": "lista",
+        "ids": "list",
         "initializers": {
             "members": [{
                 "key": { "value": "\"Hello\"" },
@@ -14,6 +14,7 @@
                 "key": {"value": "\"Welcome\""},
                 "value": { "value": "\"Bienvenido\""}
             }]
-        }
+        },
+        "isMutable": true
     }]
 }

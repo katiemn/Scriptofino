@@ -1,8 +1,9 @@
 {
     "statements": [{
-        "ids": "tuple",
+        "ids": "tup",
         "initializers": {
             "members": [{"value": 9}, {"value": 22}, {"value": "\"rojo\""}]
-        }
+        },
+        "isMutable": true
     }]
 }

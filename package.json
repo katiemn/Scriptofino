@@ -1,7 +1,7 @@
 {
   "name": "scriptofino",
   "version": "1.0.0",
-  "description": "\"a compiler for a scripting language with keywords in Spanish\"",
+  "description": "\"A compiler for a scripting language with Spanish keywords\"",
   "main": "scriptofino.js",
   "directories": {
     "doc": "docs"
@@ -9,27 +9,26 @@
   "scripts": {
     "test": "mocha test/**/*test.js"
   },
-  "jest": {
-    "transform": {}
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samsavv/Scriptofino.git"
+    "url": "git+https://github.com/katiemn/Scriptofino.git"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "fs": "0.0.1-security",
     "mocha": "^5.2.0",
+    "ohm-js": "^0.14.0",
     "ohm": "^0.10.4",
-    "yargs": "^10.1.1"
+    "yargs": "^10.1.1",
+    "pretty-js": "^0.2.0",
+    "cryptiles": ">=4.1.2",
+    "morgan": ">=1.9.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "jest": "^22.4.4",
-    "ohm-js": "^0.14.0",
-    "pretty-js": "^0.2.0"
+    "jest": "^22.4.4"
   }
 }

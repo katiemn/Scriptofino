@@ -1,0 +1,6 @@
+la x = 0
+plusTwo: num -> num
+llama plusTwo (x):
+    regresa x + 2
+
+plusTwo(3, 5)

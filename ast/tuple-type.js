@@ -1,6 +1,7 @@
 const Type = require('./type');
-module.exports = class TupleType {
-  constructor(tupleType) {
-    Object.assign(this, { tupleType });
+module.exports = class TupleType extends Type {
+  constructor(type) {
+    super('tuple');
+    this.elementType = type;
   }
 };

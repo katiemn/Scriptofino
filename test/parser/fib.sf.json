@@ -8,8 +8,8 @@
           "params": [{"defaultExpression": null, "id": "n" } ],
           "resultTypes": ["num"],
           "suite":[
-            {"ids": "a", "initializers": { "value": 0 }},
-            {"ids": "b", "initializers": { "value": 1 }},
+            {"ids": "a", "initializers": { "value": 0 }, "isMutable": true},
+            {"ids": "b", "initializers": { "value": 1 }, "isMutable": true},
             {
               "body": [
                 {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},
@@ -23,8 +23,8 @@
         "id": "fib",
         "params": [{"defaultExpression": null, "id": "n" } ],
         "suite":[
-          {"ids": "a", "initializers": { "value": 0 }},
-          {"ids": "b", "initializers": { "value": 1 }},
+          {"ids": "a", "initializers": { "value": 0 }, "isMutable": true},
+          {"ids": "b", "initializers": { "value": 1 }, "isMutable": true},
           {
             "body": [
               {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},
@@ -36,22 +36,17 @@
         ]
       },
       {
-        "call": {
-          "callee": {"id": "imprimir"},
-          "args": [{
-              "id": null,
-              "expression": {"callee": {"id": "fib"}, "args": [{"id": null, "expression": {"value": 5}}]}
-          }]
-        }
-      },
+      "args": [{
+          "expression": {"args": [{"expression": {"value": 5}, "id": null}], "callee": {"id": "fib"}},
+          "id": null
+      }],
+      "callee": {"id": "imprimir"}},
       {
-        "call": {
-          "callee": {"id": "imprimir"},
-          "args": [{
-              "id": null,
-              "expression": {"callee": {"id": "fib"}, "args": [{"id": null, "expression": {"value": 10}}]}
-            }]
-        }
+        "args": [{
+            "expression": {"args": [{"expression": {"value": 10}, "id": null}], "callee":{"id": "fib"}},
+            "id": null
+        }],
+        "callee": {"id": "imprimir"}
       }
     ]
   }

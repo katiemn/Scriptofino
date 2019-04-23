@@ -1,0 +1,3 @@
+dos: num, num -> num
+llama dos (x):
+    regresa 2

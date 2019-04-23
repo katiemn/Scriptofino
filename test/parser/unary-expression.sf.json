@@ -1,5 +1,5 @@
 {
     "statements": [
-        {"ids": "x", "initializers": {"op": "-", "operand": {"value": 3}}}
+        {"ids": "x", "initializers": {"op": "-", "operand": {"value": 3}}, "isMutable": false}
     ]
 }

@@ -22,7 +22,6 @@ const BinaryExpression = require('../ast/binary-expression');
 const UnaryExpression = require('../ast/unary-expression');
 const IdentifierExpression = require('../ast/identifier-expression');
 const SubscriptedExpression = require('../ast/subscripted-expression');
-const Caller = require('../ast/caller');
 const Parameter = require('../ast/parameter');
 const Argument = require('../ast/argument');
 const KeyValue = require('../ast/key-value');
@@ -32,6 +31,7 @@ const DictTypeExpression = require('../ast/dict-type');
 const BooleanLiteral = require('../ast/boolean-literal');
 const NumericLiteral = require('../ast/numeric-literal');
 const StringLiteral = require('../ast/string-literal');
+const NoneLiteral = require('../ast/none-literal');
 
 const grammar = ohm.grammar(fs.readFileSync('./syntax/Scriptofino.ohm'));
 
@@ -54,10 +54,9 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   FuncDec(annotation, _1, _2, id, _3, params, _4, suite) { return new FunctionDeclaration(annotation.ast(), id.ast(), params.ast(), suite.ast()); },
   Annotation(id, _1, paramTypes, _2, resultTypes) { return new FunctionAnnotation(id.ast(), paramTypes.ast(), resultTypes.ast()); },
   Error(_1, _2, e, _3, _4) { return new Error(e.ast()); },
-  VarConst(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast()); },
-  VarMutable(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast()); },
+  VarConst(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), false); },
+  VarMutable(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), true); },
   Assignment(v, _, e) { return new AssignmentStatement(v.ast(), e.ast()); },
-  SimpleStmt_call(c) { return new Caller(c.ast()); },
   SimpleStmt_break(_) { return new BreakStatement(); },
   SimpleStmt_return(_, e) { return new ReturnStatement(unpack(e.ast())); },
   Suite_small(_1, statement, _2) { return [statement.ast()]; },
@@ -88,6 +87,7 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   numlit(_1, _2, _3, _4, _5, _6) { return new NumericLiteral(+this.sourceString); },
   boollit(_) { return new BooleanLiteral(!!this.sourceString); },
   strlit(_1, chars, _6) { return new StringLiteral(this.sourceString); },
+  nonelit(_){ return new NoneLiteral(this.sourceString); },
   _terminal() { return this.sourceString; },
 });
 

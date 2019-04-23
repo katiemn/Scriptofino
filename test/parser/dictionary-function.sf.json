@@ -1,12 +1,12 @@
 {
     "statements": [
         {
-            "annotation": {"id": "func", "paramTypes": ["num"], "resultTypes": [{"keyType": "string", "valueType": "num"}]},
+            "annotation": {"id": "func", "paramTypes": ["num"], "resultTypes": [{"keyType": "string", "name": "dictionary", "valueType": "num"}]},
             "function": {
                 "id": "func",
                 "paramTypes": ["num"],
                 "params": [{"defaultExpression": null, "id": "x" }],
-                "resultTypes": [{"keyType": "string", "valueType": "num"}],
+                "resultTypes": [{"keyType": "string", "name": "dictionary", "valueType": "num"}],
                 "suite":[
                     { "returnValue": { "members": [{"key": {"id": "two"}, "value": {"value": 2}}]}}
                 ]
