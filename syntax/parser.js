@@ -40,19 +40,25 @@ function unpack(a) {
   return a.length === 0 ? null : a[0];
 }
 
+/* eslint-disable no-unused-vars */
 const astGenerator = grammar.createSemantics().addOperation('ast', {
   Program(_1, body, _2) { return new Program(body.ast()); },
   Stmt_simple(statement, _) { return statement.ast(); },
   For(_1, id, _2, exps, suite) { return new ForStatement(id.ast(), exps.ast(), suite.ast()); },
   While(_, test, suite) { return new WhileStatement(test.ast(), suite.ast()); },
-  Conditional(_1, _2, firstTest, _3, firstSuite, _4, additionalTests, additionalSuites, _5, finalSuite) {
+  Conditional(_1, _2, firstTest, _3, firstSuite, _4, additionalTests,
+    additionalSuites, _5, finalSuite) {
     const tests = [firstTest.ast(), ...additionalTests.ast()];
     const bodies = [firstSuite.ast(), ...additionalSuites.ast()];
     const cases = tests.map((test, index) => new Case(test, bodies[index]));
     return new IfStatement(cases, unpack(finalSuite.ast()));
   },
-  FuncDec(annotation, _1, _2, id, _3, params, _4, suite) { return new FunctionDeclaration(annotation.ast(), id.ast(), params.ast(), suite.ast()); },
-  Annotation(id, _1, paramTypes, _2, resultTypes) { return new FunctionAnnotation(id.ast(), paramTypes.ast(), resultTypes.ast()); },
+  FuncDec(annotation, _1, _2, id, _3, params, _4, suite) {
+    return new FunctionDeclaration(annotation.ast(), id.ast(), params.ast(), suite.ast());
+  },
+  Annotation(id, _1, paramTypes, _2, resultTypes) {
+    return new FunctionAnnotation(id.ast(), paramTypes.ast(), resultTypes.ast());
+  },
   Error(_1, _2, e, _3, _4) { return new Error(e.ast()); },
   VarConst(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), false); },
   VarMutable(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), true); },
@@ -77,7 +83,7 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   VarExp_simple(id) { return new IdentifierExpression(id.ast()); },
   Param(id, _, exp) { return new Parameter(id.ast(), unpack(exp.ast())); },
   Arg(id, _, exp) { return new Argument(unpack(id.ast()), exp.ast()); },
-  KeyVal(id, _,exp) { return new KeyValue(id.ast(), exp.ast()); },
+  KeyVal(id, _, exp) { return new KeyValue(id.ast(), exp.ast()); },
   ListType(_1, _2, type, _3) { return new ListTypeExpression(type.ast()); },
   TupleType(_1, _2, type, _3) { return new TupleTypeExpression(type.ast()); },
   DictType(_1, _2, key, _3, value, _4) { return new DictTypeExpression(key.ast(), value.ast()); },
@@ -87,14 +93,15 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   numlit(_1, _2, _3, _4, _5, _6) { return new NumericLiteral(+this.sourceString); },
   boollit(_) { return new BooleanLiteral(!!this.sourceString); },
   strlit(_1, chars, _6) { return new StringLiteral(this.sourceString); },
-  nonelit(_){ return new NoneLiteral(this.sourceString); },
+  nonelit(_) { return new NoneLiteral(this.sourceString); },
   _terminal() { return this.sourceString; },
 });
+/* eslint-enable no-unused-vars */
 
 module.exports = (text) => {
-    const match = grammar.match(withIndentsAndDedents(text));
-    if (!match.succeeded()) {
-      throw new Error(`Syntax Error: ${match.message}`);
-    }
-    return astGenerator(match).ast();
-  };
+  const match = grammar.match(withIndentsAndDedents(text));
+  if (!match.succeeded()) {
+    throw new Error(`Syntax Error: ${match.message}`);
+  }
+  return astGenerator(match).ast();
+};
