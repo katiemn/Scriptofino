@@ -1,6 +1,6 @@
 // const Type = require('./type');
 // const ListType = require('./list-type');
-const Variable = require('./variable');
+// const Variable = require('./variable');
 // const IdExpression = require('./identifier-expression');
 
 module.exports = class FunctionObject {
@@ -19,11 +19,11 @@ module.exports = class FunctionObject {
     const { paramTypes } = this.annotation;
 
     // cannot properly check nada for paramType
-    if (paramTypes === 'nada' && this.params.length > 0) {
+    if (JSON.stringify(paramTypes) === JSON.stringify(['nada']) && this.params.length > 0) {
       throw new Error('Function should not have params');
     }
-    if (paramTypes.length !== this.params.length) {
-      throw new Error(`Number of parameters do not match paramType: ${this.paramTypes}, params:${this.params.length}`);
+    if (JSON.stringify(paramTypes) !== JSON.stringify(['nada']) && this.params.length !== paramTypes.length) {
+      throw new Error('Number of parameters do not match');
     }
 
     // this.params.forEach((p) => {

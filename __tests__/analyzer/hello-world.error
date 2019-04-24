@@ -1,3 +1,9 @@
 hello_world: nada -> string
 llama hello_word():
-    imprimir("Hello world")
+    regresa 2
+    
+
+
+why()
+
+¡ call imprimir in here 

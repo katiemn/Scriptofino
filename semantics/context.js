@@ -49,14 +49,14 @@ class Context {
   // be a bit more sophisticated.
   add(entity) {
     if (entity.id in this.declarations) {
-      throw new Error(`Identifier already declared in scope`);
+      throw new Error('Identifier already declared in scope');
     }
     this.declarations[entity.id] = entity;
   }
 
   cannotRebindToConstantVariable(id) {
     if (this.declarations[id] && !this.declarations[id].isMutable) {
-      throw new Error(`Cannot rebind to constant variable`);
+      throw new Error('Cannot rebind to constant variable');
     }
   }
 
@@ -65,8 +65,8 @@ class Context {
   lookup(id) {
     if (id in this.declarations) {
       return this.declarations[id];
-    } else if (this.parent === null) {
-      throw new Error(`Identifier has not been declared`);
+    } if (this.parent === null) {
+      throw new Error('Identifier has not been declared');
     } else {
       return this.parent.lookup(id);
     }

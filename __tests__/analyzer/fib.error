@@ -9,7 +9,7 @@ llama fib(n):
     regresa a
     
 imprimir(fib(5))
-imprimir(fib(10))
+fib(10)
 
 
 
