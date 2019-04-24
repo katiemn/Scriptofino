@@ -1,21 +1,16 @@
 {
     "statements": [
         {
-            "annotation": {"id": "func", "paramTypes": ["num"], "resultTypes": [{"name": "tuple", "elementType": ["num","string","num"]}]},
             "function": {
+                "annotation": {"id": "func", "paramTypes": ["num"], 
+                    "resultTypes": [{"elementType": ["num","string","num"], "name": "tuple"}]},
                 "id": "func",
-                "paramTypes": ["num"],
                 "params": [{"defaultExpression": null, "id": "x" }],
-                "resultTypes": [{"name": "tuple", "elementType": ["num","string","num"]}],
                 "suite":[
                     { "returnValue": { "members": [{"value": 22}, {"value": "\"hola\""}, {"value": 4}]}}
                 ]
             },
-            "id": "func",
-            "params": [{"defaultExpression": null, "id": "x"}],
-            "suite":[
-                {"returnValue": { "members": [{"value": 22}, {"value": "\"hola\""}, {"value": 4}]}}
-            ]
+            "id": "func"
         }
     ]
 }

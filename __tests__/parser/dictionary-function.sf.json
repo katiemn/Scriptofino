@@ -1,21 +1,19 @@
-{
-    "statements": [
-        {
-            "annotation": {"id": "func", "paramTypes": ["num"], "resultTypes": [{"keyType": "string", "name": "dictionary", "valueType": "num"}]},
-            "function": {
-                "id": "func",
-                "paramTypes": ["num"],
-                "params": [{"defaultExpression": null, "id": "x" }],
-                "resultTypes": [{"keyType": "string", "name": "dictionary", "valueType": "num"}],
-                "suite":[
-                    { "returnValue": { "members": [{"key": {"id": "two"}, "value": {"value": 2}}]}}
-                ]
-            },
-            "id": "func",
-            "params": [{"defaultExpression": null, "id": "x"}],
-            "suite":[
-                {"returnValue": { "members": [{"key": {"id": "two"}, "value": {"value": 2}}]}}
-            ]
-        }
+{"statements": 
+    [{"function": 
+        {"annotation": {"id": "func", 
+            "paramTypes": ["num"], 
+            "resultTypes": [{"keyType": "string", "name": "dictionary", "valueType": "num"}]
+        }, 
+        "id": "func", 
+        "params": [{"defaultExpression": null, "id": "x"}], 
+        "suite": [{"returnValue": {"members": [{"key": {"id": "two"}, "value": {"value": 2}}]}
+        }]}, 
+        "id": "func"}
     ]
 }
+
+
+
+
+
+                

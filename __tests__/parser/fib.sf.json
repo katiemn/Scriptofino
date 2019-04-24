@@ -1,25 +1,7 @@
 {
-    "statements": [
-      {
-        "annotation": {"id": "fib", "paramTypes": ["num"], "resultTypes": ["num"]},
-        "function": {
-          "id": "fib",
-          "paramTypes": ["num"],
-          "params": [{"defaultExpression": null, "id": "n" } ],
-          "resultTypes": ["num"],
-          "suite":[
-            {"ids": "a", "initializers": { "value": 0 }, "isMutable": true},
-            {"ids": "b", "initializers": { "value": 1 }, "isMutable": true},
-            {
-              "body": [
-                {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},
-                {"sources": [ {"left": { "id": "a" }, "op": "+", "right": { "id": "b" }}], "targets": [{"id": "b"}]}
-              ],
-                "test": {"left": {"id": "b"}, "op": "<", "right": {"id": "n"}}
-            }, 
-            {"returnValue": {"id": "a"}}
-          ]
-        },
+  "statements": [
+    {
+      "function": {"annotation": {"id": "fib", "paramTypes": ["num"], "resultTypes": ["num"]},
         "id": "fib",
         "params": [{"defaultExpression": null, "id": "n" } ],
         "suite":[
@@ -35,18 +17,19 @@
           {"returnValue": {"id": "a"}}
         ]
       },
-      {
+      "id": "fib"},
+    {
       "args": [{
-          "expression": {"args": [{"expression": {"value": 5}, "id": null}], "callee": {"id": "fib"}},
+          "expression": {"args": [{"expression": {"value": 5}, "id": null}], "callee":{"id": "fib"}},
           "id": null
       }],
-      "callee": {"id": "imprimir"}},
-      {
-        "args": [{
-            "expression": {"args": [{"expression": {"value": 10}, "id": null}], "callee":{"id": "fib"}},
-            "id": null
-        }],
-        "callee": {"id": "imprimir"}
-      }
-    ]
-  }
+      "callee": {"id": "imprimir"}
+    }, 
+    {"args": [{"expression": {"args": [{"expression": {"value": 10},
+        "id": null}],
+        "callee":{"id": "fib"}},
+        "id": null}],
+      "callee": {"id": "imprimir"}
+    }
+  ]
+}

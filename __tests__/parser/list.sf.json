@@ -1,25 +1,17 @@
 {
     "statements": [
         {
-            "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"elementType": "num", "name": "list"}]},
             "function": {
+                "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"elementType": "num", "name": "list"}]},
                 "id": "list",
-                "paramTypes": ["num"],
                 "params": [{"defaultExpression": null, "id": "x" }],
-                "resultTypes": [{"elementType": "num", "name": "list"}],
                 "suite":[
                     {"ids": "list", "initializers": { "members": [{"id": "x"}, {"id": "x"}, {"id": "x"}]},
                     "isMutable": true},
                     { "returnValue": {"subscript": {"value": 1}, "variable": {"id": "list"}}}
                 ]
             },
-            "id": "list",
-            "params": [{"defaultExpression": null, "id": "x"}],
-            "suite":[
-                {"ids": "list", "initializers": {"members": [{"id": "x"}, {"id": "x"}, {"id": "x"}]},
-                "isMutable": true},
-                {"returnValue": {"subscript": {"value": 1}, "variable": {"id": "list"}}}
-            ]
+            "id": "list"
         }
     ]
 }
