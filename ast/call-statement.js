@@ -1,12 +1,23 @@
 module.exports = class Call {
     constructor(callee, args) {
       Object.assign(this, { callee, args });
+      
     }
     analyze(context) {
       this.callee.analyze(context);
-      context.assertIsFunction(this.callee.referent);
-      this.checkArgumentMatching(this.callee.referent);
       this.args.forEach(arg => arg.analyze(context));
+      context.assertIsFunction(this.callee.referent);
+      this.type = this.callee.referent.resultTypes;
+     
+      this.checkArgumentMatching(this.callee.referent);
+    
+      this.args.forEach((arg, index) => {
+        if (arg.type === undefined) {
+          throw new Error(`arg type:${this.callee.referent.paramTypes[index]}`)
+        }
+        arg.type.mustBeCompatibleWith(this.callee.referent.paramTypes[index]);
+      })
+      
     }
   
     checkArgumentMatching(callee) {

@@ -7,9 +7,11 @@ llama fib(n):
         a = b
         b = a + b
     regresa a
-
+    
 imprimir(fib(5))
 imprimir(fib(10))
+
+
 
 ¡ not supposed to throw err
 ¡ here for testing purposes
