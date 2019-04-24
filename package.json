@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "mocha test/**/*test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,11 +16,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "cryptiles": ">=4.1.2",
-    "fs": "0.0.1-security",
-    "mocha": "^5.2.0",
-    "morgan": ">=1.9.1",
-    "ohm": "^1.1.1",
     "ohm-js": "^0.14.0",
     "pretty-js": "^0.2.0",
     "yargs": "^10.1.1"
