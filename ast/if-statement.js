@@ -1,11 +1,12 @@
 module.exports = class IfStatement {
-    constructor(cases, alternate) {
-      Object.assign(this, { cases, alternate });
+  constructor(cases, alternate) {
+    Object.assign(this, { cases, alternate });
+  }
+
+  analyze(context) {
+    this.cases.forEach(c => c.analyze(context.createChildContextForBlock()));
+    if (this.alternate) {
+      this.alternate.analyze(context.createChildContextForBlock());
     }
-    analyze(context) {
-      this.cases.forEach(c => c.analyze(context.createChildContextForBlock()));
-      if (this.alternate) {
-        this.alternate.analyze(context.createChildContextForBlock());
-      }
-    }
+  }
 };

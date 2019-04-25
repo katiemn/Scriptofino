@@ -6,13 +6,6 @@ llama fib(n):
     mientras b < n:
         a = b
         b = a + b
-    regresa a
-    
+    regresa a  
 
 fib(10)
-
-
-
-
-¡ not supposed to throw err
-¡ here for testing purposes

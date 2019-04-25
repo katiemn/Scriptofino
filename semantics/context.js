@@ -12,13 +12,13 @@
 
 const FunctionDeclaration = require('../ast/function-declaration');
 const FunctionObject = require('../ast/function-object');
-const Parameter = require('../ast/parameter');
 const Annotation = require('../ast/annotate');
-const Type = require('../ast/type');
 
 class Context {
   constructor({ parent = null, currentFunction = null, inLoop = false } = {}) {
-    Object.assign(this, { parent, currentFunction, inLoop, declarations: Object.create(null) });
+    Object.assign(this, {
+      parent, currentFunction, inLoop, declarations: Object.create(null),
+    });
   }
 
   createChildContextForFunctionBody(currentFunction) {

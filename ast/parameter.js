@@ -3,10 +3,6 @@ module.exports = class Parameter {
     Object.assign(this, { id, defaultExpression });
   }
 
-  get isRequired() {
-    return this.defaultExpression === null;
-  }
-
   analyze(context) {
     if (this.defaultExpression) {
       this.defaultExpression.analyze();

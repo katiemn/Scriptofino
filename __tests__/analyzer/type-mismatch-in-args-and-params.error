@@ -1,0 +1,7 @@
+la a = 0
+la b = 0
+sumar: num, num -> num
+llama sumar(a, b):
+    regresa a + b
+
+sumar("3", 7)
