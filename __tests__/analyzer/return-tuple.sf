@@ -1,0 +1,9 @@
+la nombre = " "
+la años = 0
+
+info: string, num -> tuple(string, num)
+llama info(nombre, años):
+    regresa (nombre, años)
+
+la x = info("katie", 21)
+    
