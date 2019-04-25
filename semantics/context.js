@@ -87,7 +87,7 @@ class Context {
 
 Context.INITIAL = new Context();
 new FunctionDeclaration(
-  new Annotation('imprimir', [Type.STRING], [Type.STRING]),
+  new Annotation('imprimir', ['string'], ['string']),
   'imprimir',
   ['_'],
   null,

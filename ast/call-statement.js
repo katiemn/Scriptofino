@@ -12,10 +12,17 @@ module.exports = class Call {
     this.checkArgumentMatching(this.callee.referent);
     this.args.forEach((arg, index) => {
       // if (arg.type === undefined) {
-      //   throw new Error(JSON.stringify(this.callee.referent.annotation.paramTypes[index].name));
+      //   throw new Error(arg.expression.type.name);
       // }
-      arg.expression.type.name.mustBeCompatibleWith(this.callee.referent.annotation.paramTypes[index]);
+      if (!arg.expression.type.isCompatibleWith(this.callee.referent.annotation.paramTypes[index])) {
+        throw new Error(`Type mismatch error, arg type: ${JSON.stringify(arg.expression.type)}, 
+        paramType: ${JSON.stringify(this.callee.referent.annotation.paramTypes[index])}`);
+      }
     });
+  }
+
+  isCompatibleWith(otherType) {
+    return JSON.stringify(this) === JSON.stringify(otherType);
   }
 
   checkArgumentMatching(callee) {

@@ -8,8 +8,9 @@ llama fib(n):
         b = a + b
     regresa a
     
-imprimir(fib(5))
+
 fib(10)
+
 
 
 
