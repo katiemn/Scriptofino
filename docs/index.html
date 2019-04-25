@@ -29,28 +29,54 @@
 			                      ScriptoFino is a simple scripting language that draws inspiration from Python. Scriptofino is designed to remove the cognitive dissonance between thinking in code and writing out its implementation. Additionally, SciptoFino is designed to mimic the natural syntax and structure of the Spanish language.
 			                      <br>
 			                      <br>
-			                      Some amazing features of Scriptofino include Spanish keywords, Easy readability, function indentation and annotations, and it's very easy to learn!                
+			                      Some amazing features of Scriptofino include:
+			                      <ul>
+			                      	<li>Spanish keywords</li> 
+			                      	<li>Easy readability</li> 
+			                      	<li>Function indentation and annotations</li>
+			                      	<li>It's very easy to learn!</li>
+			                      </ul>                
 			                    </p>
 			                  </blockquote>
 			                </div>
-
 			                <section class="Examples">
-			                	<b><font size="12"><h3 class="title">Examples</h3></font></b>
+			                	<b><font size="12"><h3 class="title">Example Code</h3></font></b>
 			                	<font size="5"><h4 class="title">Hello World!</h4></font>
-			                		<code>
-			                			hello_world: nada -> string
-										llama hello_word():
-    									imprimir("Hello world")
-    								</code>
+			                	<div class="col-sm-12 col-lg-6">
+			                		<pre><code>hello_world: nada -> string
+  llama hello_word(): 
+  imprimir("Hello world")</code></pre>
+    							</div>
     							<font size="5"><h5 class="title">Fibonacci</h5></font>
-    								<code>
-    									fib: num -> num
+    								<pre><code>fib: num -> num
 llama fib(x):
-    si (x > 0):
-        regresa fib(x-1)
-    sino: 
-        regresa x
-</code>
+  si (x > 0):
+    regresa fib(x-1)
+  sino: 
+    regresa x</code></pre>
+    							<font size="5"><h6 class="title">Change Maker</h6></font>
+    							<pre><code>make_change: num -> lista(num)
+llama make_change(amount):
+    si (amount es 0):
+      regresa [0, 0, 0, 0]
+    
+    si (amount < 0):
+      echar nuevo Error("Amount cannot be negative")
+
+    la initAmount = amount
+    la newAmount = 0
+
+    la quarters = piso(initAmount/25)
+    newAmount = initAmount % 25
+
+    la dimes = piso(newAmount/10)
+    newAmount = newAmount % 10
+
+    la nickels = piso(newAmount/5)
+    newAmount = newAmount % 5
+
+    la pennies = newAmount;
+    regresa [quarters, dimes, nickels, pennies]</code></pre>
 
 
 				<!-- Footer -->
