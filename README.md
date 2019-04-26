@@ -209,3 +209,19 @@ function makeChange(amount){
     return [quarters, dimes, nickels, pennies];
 }
 ```
+#### Semantic Analyzer
++ detects if a break statement is outside of a loop
++ detects if a variable has already been binded
++ detects if a function has the correct parameters and the correct number of parameters
++ detects if an identifier has already been declared in scope and if an identifier has not been declared
++ makes sure a negative operator is only being applied to numbers
++ makes sure 'not' is only applied to booleans
++ detects if not enough arguments are in a call
++ detects if number of parametrs match
++ detects if the number of variables matches the number of expressions
++ makes sure that a subscripted identifier must be a tuple, a dictionary, or a list
++ detects if there are too many arguments in a call
++ detects if the type of the parameters matches the type of the arguments 
++ detects if there are type mismatches in a dictionary
++ detects if there are type mismatches in a list
++ detects all type mismatches
