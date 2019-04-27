@@ -13,14 +13,22 @@ module.exports = class Call {
       throw new Error('Not enough args in call');
     }
     this.args.forEach((arg, index) => {
+      // if (arg.expression.type === undefined) {
+      //   throw new Error(`${JSON.stringify(arg.expression.args.expression.type)}`);
+      //   // argType = arg.expression.callee.args.expression.type.name;
+      // }
       const argType = arg.expression.type.name;
       // if (arg.type === undefined) {
-      //   throw new Error(`${argType}`);
+      //   throw new Error(`${this.callee.referent.annotation.paramTypes[index] !== 'objecto'}`);
       // }
 
-      if (JSON.stringify(argType)
-      !== JSON.stringify(this.callee.referent.annotation.paramTypes[index])) {
-        throw new Error('Type mismatch in args and params');
+      if (argType !== 'objecto') {
+        if (this.callee.referent.annotation.paramTypes[index] !== 'objecto') {
+          if (JSON.stringify(argType)
+          !== JSON.stringify(this.callee.referent.annotation.paramTypes[index])) {
+            throw new Error('Type mismatch in args and params');
+          }
+        }
       }
     });
   }

@@ -2,12 +2,12 @@
     "statements": [
         {
             "function": {
-                "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"elementType": "num", "name": "list"}]},
+                "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"elementType": "num", "name": "lista"}]},
                 "id": "list",
                 "params": [{"defaultExpression": null, "id": "x" }],
                 "suite":[
                     {"ids": "list", "initializers": { "members": [{"id": "x"}, {"id": "x"}, {"id": "x"}]},
-                    "isMutable": true},
+                    "isMutable": true, "type": ""},
                     { "returnValue": {"subscript": {"value": 1}, "variable": {"id": "list"}}}
                 ]
             },

@@ -8,7 +8,7 @@ describe('The semantic analyzer', () => {
     if (name.endsWith('.error')) {
       it(`detects a ${name.replace(/[^a-z]/g, ' ')}`, (done) => {
         const program = parse(fs.readFileSync(`${__dirname}/${name}`, 'utf-8'));
-        const errorPattern = RegExp(name.replace(/.error\d*/, '').replace(/-/g, ' '), 'i');
+        const errorPattern = RegExp(name.replace(/.error\d*/, '').replace(/-/g, ' ').replace(/\d+/g, ''), 'i');
         assert.throws(() => program.analyze(), errorPattern);
         done();
       });

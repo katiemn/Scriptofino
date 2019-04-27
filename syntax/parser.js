@@ -60,8 +60,10 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
     return new FunctionAnnotation(id.ast(), paramTypes.ast(), resultTypes.ast());
   },
   Error(_1, _2, e, _3, _4) { return new Error(e.ast()); },
-  VarConst(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), false); },
-  VarMutable(_1, v, _2, e) { return new VariableDeclaration(v.ast(), e.ast(), true); },
+  // eslint-disable-next-line max-len
+  VarConst(_1, t, v, _2, e) { return new VariableDeclaration(v.ast(), t.sourceString, e.ast(), false); },
+  // eslint-disable-next-line max-len
+  VarMutable(_1, t, v, _2, e) { return new VariableDeclaration(v.ast(), t.sourceString, e.ast(), true); },
   Assignment(v, _, e) { return new AssignmentStatement(v.ast(), e.ast()); },
   SimpleStmt_break(_) { return new BreakStatement(); },
   SimpleStmt_return(_, e) { return new ReturnStatement(unpack(e.ast())); },

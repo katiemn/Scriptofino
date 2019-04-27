@@ -47,8 +47,8 @@ Scriptofino {
   Error       =  "echar nuevo Error" "("strlit")" newline
 
   VarDeclar   =  VarConst | VarMutable
-  VarConst    =  "el" id "=" Exp
-  VarMutable  =  "la" id "=" Exp
+  VarConst    =  "el" (basicType | "lista" | "tuple" | "diccionario")? id "=" Exp
+  VarMutable  =  "la" (basicType | "lista" | "tuple" | "diccionario")? id "=" Exp
   Assignment  =  VarExps "=" Exps
   Call        =  VarExp "(" Args ")"
 
@@ -67,7 +67,7 @@ Scriptofino {
   TupleType   =  "tuple" "("NonemptyListOf<basicType, ",">")"
   DictType    =  "diccionario" "("basicType":"basicType")"
 
-  basicType   =  "string" | "boolean" | "num" | "nada"
+  basicType   =  "string" | "boolean" | "num" | "nada" | "objecto"
   keyword     =  (basicType | "mientras" | "para" | "si" | "sinosi" | "sino" | "llama" | "la" | "el"
               |  "regresa" | "rompe" | "yy" | "oo" | "not" | "verdad" | "falso" | "echar nuevo Error"
               | "es" | "no es" | "lista" | "tuple" | "diccionario" | "en") ~idrest

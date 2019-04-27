@@ -15,6 +15,7 @@
                 "value": { "value": "\"Bienvenido\""}
             }]
         },
-        "isMutable": true
+        "isMutable": true,
+        "type": ""
     }]
 }

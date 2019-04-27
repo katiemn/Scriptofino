@@ -5,8 +5,8 @@
         "id": "fib",
         "params": [{"defaultExpression": null, "id": "n" } ],
         "suite":[
-          {"ids": "a", "initializers": { "value": 0 }, "isMutable": true},
-          {"ids": "b", "initializers": { "value": 1 }, "isMutable": true},
+          {"ids": "a", "initializers": { "value": 0 }, "isMutable": true, "type": ""},
+          {"ids": "b", "initializers": { "value": 1 }, "isMutable": true, "type": ""},
           {
             "body": [
               {"sources": [ {"id": "b"} ], "targets": [ { "id": "a" }]},

@@ -1,0 +1,4 @@
+imprimir(4)
+imprimir(falso)
+imprimir("hola")
+imprimir(nada)

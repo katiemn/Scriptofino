@@ -8,4 +8,5 @@ llama fib(n):
         b = a + b
     regresa a  
 
-fib(10)
+la num f = fib(10)
+imprimir(f)

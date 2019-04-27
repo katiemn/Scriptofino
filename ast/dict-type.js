@@ -2,7 +2,7 @@ const Type = require('./type');
 
 module.exports = class DictType extends Type {
   constructor(keyType, valueType) {
-    super('dictionary');
+    super('diccionario');
     Object.assign(this, { keyType, valueType });
   }
 };

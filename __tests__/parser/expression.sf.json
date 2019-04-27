@@ -1,8 +1,8 @@
 {
     "statements": [{
         "ids": "x",
-        "initializers": {"value": 0}, "isMutable": false},
-        {"ids": "y", "initializers": {"value": 0}, "isMutable": true},
+        "initializers": {"value": 0}, "isMutable": false, "type": ""},
+        {"ids": "y", "initializers": {"value": 0}, "isMutable": true, "type": ""},
         {"cases": [{
             "test": {"left": {"left": {"id": "x"}, "op": "es", "right": {"value": 0}}, 
                      "op": "yy",  

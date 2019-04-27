@@ -1,1 +1,1 @@
-la tup = (9, 22, "rojo")
+la tuple tup = (9, 22, "rojo")

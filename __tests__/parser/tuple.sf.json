@@ -4,6 +4,7 @@
         "initializers": {
             "members": [{"value": 9}, {"value": 22}, {"value": "\"rojo\""}]
         },
-        "isMutable": true
+        "isMutable": true,
+        "type": "tuple"
     }]
 }

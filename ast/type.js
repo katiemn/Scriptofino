@@ -5,7 +5,7 @@ class Type {
   }
 
   mustBeCompatibleWith(otherType) {
-    if (!this.isCompatibleWith(otherType)) {
+    if (!this.isCompatibleWith(otherType) && this !== Type.OBJECT && otherType !== Type.OBJECT) {
       throw new Error('Type mismatch error');
     }
   }
@@ -26,6 +26,7 @@ Type.BOOLEAN = new Type('boolean');
 Type.NUMBER = new Type('num');
 Type.STRING = new Type('string');
 Type.NONE = new Type('nada');
+Type.OBJECT = new Type('objecto');
 
 Type.forName = name => Type.cache[name];
 
