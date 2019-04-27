@@ -9,7 +9,6 @@ module.exports = class ForStatement {
 
   analyze(context) {
     const getIteratorType = (expression) => {
-      // let exp = expression;
       if (expression instanceof IdExpression) {
         // eslint-disable-next-line no-param-reassign
         expression = expression.referent;

@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/final-scriptofino-logo.png" width=125 height=100>
+<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/final-scriptofino-logo.png">
 
 # ScriptoFino
 
@@ -21,6 +21,9 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 * boolean: ```verdad, falso```
 * num: ```1, -382, 3.0```
 * string: ```"hello", "sofia", "¡scriptofino is cool!"```
+* nada: ```nada```
+* object: ```objecto```
+  - super type that is compatible with all other types
 * list: ```["hello", "this", "is", "a", "list"] , [3, 2, 1]```
 * dictionary: ```{"Hello": "Hola", "Goodbye": "Adiós"}```
 * tuple: ```(9, 22, "rojo")```
@@ -32,6 +35,7 @@ num age               -> la age = 21
 boolean is_true       -> la is_true = verdad
 mutable binding       -> la emotion = "feliz"
 immutable binding     -> el número = 3
+type declaration      -> la num age = 3
 ```
 
 #### Comments
@@ -95,7 +99,7 @@ while y > 3:
 ```
 
 ### Sample Programs
-examples in ScriptoFino with JavaScript "translation"
+Examples in ScriptoFino with JavaScript "translations"
 ```
 la x = 10
 si (verdad):
@@ -130,9 +134,9 @@ llama fib(x):
     sino: 
         regresa x
 
-myRecursiveFunction = (n) => {
+fib = (n) => {
     if (n > 0) {
-        return myRecursiveFunction(n-1);
+        return fib(n-1);
     } else {
 	return n;
     }
@@ -209,6 +213,22 @@ function makeChange(amount){
     return [quarters, dimes, nickels, pennies];
 }
 ```
+```
+la nombre = " "
+la años = 0
+
+info: string, num -> tuple(string, num)
+llama info(nombre, años):
+    regresa (nombre, años)
+
+la x = info("katie", 21)
+
+
+function info(name, age) {
+    return [name, age];
+}
+```
+
 #### Semantic Analyzer
 + detects if a break statement is outside of a loop
 + detects if a variable has already been binded
@@ -225,3 +245,7 @@ function makeChange(amount){
 + detects if there are type mismatches in a dictionary
 + detects if there are type mismatches in a list
 + detects all type mismatches
+
+#### Work in Progress
++ Issues with calling calls within calls
++ Issues with parameters being in scope when used within function context

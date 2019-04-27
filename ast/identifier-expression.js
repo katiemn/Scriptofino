@@ -3,19 +3,8 @@ module.exports = class IdentifierExpression {
     this.id = id;
   }
 
-  analyze(context, inBinding) {
-    const referent = context.lookup(this.id);
-    if (inBinding) {
-      if (referent) {
-        this.referent = referent;
-        this.type = this.referent.type;
-      }
-      return;
-    }
-    if (!referent) {
-      throw new Error('Variable not declared');
-    }
-    this.referent = referent;
+  analyze(context) {
+    this.referent = context.lookup(this.id);
     this.type = this.referent.type;
   }
 };

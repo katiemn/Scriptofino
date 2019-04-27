@@ -8,7 +8,6 @@ module.exports = class WhileStatement {
   analyze(context) {
     this.test.analyze(context);
     this.test.type.mustBeCompatibleWith(Type.BOOLEAN);
-    // this.body.analyze(context.createChildContextForLoop());
     const bodyContext = context.createChildContextForLoop();
     this.body.forEach(s => s.analyze(bodyContext));
   }

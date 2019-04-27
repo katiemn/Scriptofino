@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /*
  * from https://github.com/rtoal/plainscript/blob/master/test/grammar/grammar-test.js
  *
@@ -29,6 +30,3 @@ describe('The grammar', () => {
     }
   });
 });
-
-
-

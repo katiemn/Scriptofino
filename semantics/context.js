@@ -92,6 +92,5 @@ new FunctionDeclaration(
   ['_'],
   null,
 ).analyze(Context.INITIAL);
-// new FunctionDeclaration('sqrt', [new Parameter('_', null)], null).analyze(Context.INITIAL);
 
 module.exports = Context;

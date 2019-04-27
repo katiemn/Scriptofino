@@ -8,12 +8,9 @@ module.exports = class VariableDeclaration {
 
   analyze(context) {
     this.initializers.analyze(context);
-    // this check is not correct
     if (this.type !== '') {
-      // throw new Error(`${this.type}`);
       let otherType = this.initializers.type;
       if (otherType === undefined) {
-        // throw new Error(`${otherType}`);
         // eslint-disable-next-line prefer-destructuring
         otherType = this.initializers.callee.referent.annotation.resultTypes[0];
       } else if (this.initializers.type.name !== undefined) {
