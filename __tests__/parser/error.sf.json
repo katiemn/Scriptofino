@@ -1,9 +1,9 @@
 {
     "statements": [{
-        "cases": [{
-            "test": {"op": "es", "left": { "id": "x" }, "right": { "value": 2 }},
-            "body": [{"value": {"value": "\"el número es incorrecto\""}}]
-        }],
-        "alternate": null
-    }]
+        "ids": "x", "initializers": {"value": 0}, "isMutable": true, "type": ""}, 
+        {"alternate": null, "consequents": [[{"value": "\"el número es incorrecto\""}]], 
+        "tests": [{"members": [{"left": {"id": "x"}, "op": "es", "right": {"value": 2}}]
+        }]
+        }
+    ]
 }

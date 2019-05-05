@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/final-scriptofino-logo.png">
+<img src="https://raw.githubusercontent.com/samsavv/Scriptofino/master/docs/final-scriptofino-logo.png" width="400" >
 
 # ScriptoFino
 
@@ -23,10 +23,14 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 * string: ```"hello", "sofia", "¡scriptofino is cool!"```
 * nada: ```nada```
 * object: ```objecto```
-  - super type that is compatible with all other types
+  * super type that is compatible with all other types
 * list: ```["hello", "this", "is", "a", "list"] , [3, 2, 1]```
 * dictionary: ```{"Hello": "Hola", "Goodbye": "Adiós"}```
 * tuple: ```(9, 22, "rojo")```
+
+#### Built-In Functions
+* imprimir(print): params - objecto
+* piso(floor): params - num
 
 #### Variable Declarations
 ```

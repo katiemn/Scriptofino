@@ -1,3 +1,6 @@
+la a = 0
+la b = 0
+
 add: num, num -> num
 llama add(a,b):
     regresa a + b

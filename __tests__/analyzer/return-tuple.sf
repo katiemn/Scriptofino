@@ -1,9 +1,9 @@
 la nombre = " "
-la años = 0
+la anos = 0
 
 info: string, num -> tuple(string, num)
-llama info(nombre, años):
-    regresa (nombre, años)
+llama info(nombre, anos):
+    regresa (nombre, anos)
 
 la x = info("katie", 21)
     

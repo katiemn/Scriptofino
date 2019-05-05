@@ -2,10 +2,10 @@
     "statements": [
         {
             "function": {
-                "annotation": {"id": "func", "paramTypes": ["num"], 
+                "annotation": {"id": "func", "paramTypes": ["nada"], 
                     "resultTypes": [{"elementType": ["num","string","num"], "name": "tuple"}]},
                 "id": "func",
-                "params": [{"defaultExpression": null, "id": "x" }],
+                "params": [],
                 "suite":[
                     { "returnValue": { "members": [{"value": 22}, {"value": "\"hola\""}, {"value": 4}]}}
                 ]

@@ -1,2 +1,4 @@
-para n en numeros:
-    regresa 3
+la n = 0
+la values = [4, 6, 8]
+para n en values:
+    values[n] = values[n] + 1

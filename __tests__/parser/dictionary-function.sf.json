@@ -1,12 +1,12 @@
 {"statements": 
     [{"function": 
         {"annotation": {"id": "func", 
-            "paramTypes": ["num"], 
+            "paramTypes": ["nada"], 
             "resultTypes": [{"keyType": "string", "name": "diccionario", "valueType": "num"}]
         }, 
         "id": "func", 
-        "params": [{"defaultExpression": null, "id": "x"}], 
-        "suite": [{"returnValue": {"members": [{"key": {"id": "two"}, "value": {"value": 2}}]}
+        "params": [], 
+        "suite": [{"returnValue": {"members": [{"key": {"value": "\"two\""}, "value": {"value": 2}}]}
         }]}, 
         "id": "func"}
     ]

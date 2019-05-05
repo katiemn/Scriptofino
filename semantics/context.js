@@ -92,5 +92,11 @@ new FunctionDeclaration(
   ['_'],
   null,
 ).analyze(Context.INITIAL);
+new FunctionDeclaration(
+  new Annotation('piso', ['num'], ['num']),
+  'piso',
+  ['_'],
+  null,
+).analyze(Context.INITIAL);
 
 module.exports = Context;

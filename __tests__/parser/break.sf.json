@@ -1,12 +1,11 @@
 {
     "statements": [{
-        "test": {"left": { "id": "x" }, "op": "no es", "right": { "value": 10 }},
-        "body": [{
-            "cases": [{
-                "test": {"op": "es", "left": { "id": "x" }, "right": { "value": 4 }},
-                "body": [{}]
-            }],
-            "alternate": null
-        }]
-    }]
+        "ids": "x", "initializers": {"value": 0}, "isMutable": true, "type": ""},
+        {"body": [{
+            "alternate": null, "consequents": [[{}]],
+        "tests": [
+            {"members": [{"left": {"id": "x"}, "op": "es", "right": {"value": 4}}]}
+        ]}],
+        "test": {"left": {"id": "x"}, "op": "no es", "right": {"value": 10}}}
+    ]
 }

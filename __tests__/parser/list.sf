@@ -1,3 +1,4 @@
+la x = 1
 list: num -> lista(num)
 llama list (x):
     la list = [x, x, x]

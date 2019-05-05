@@ -8,7 +8,7 @@ const AssignmentStatement = require('../ast/assignment-statement');
 const BreakStatement = require('../ast/break-statement');
 const ReturnStatement = require('../ast/return-statement');
 const IfStatement = require('../ast/if-statement');
-const Case = require('../ast/case');
+// const Case = require('../ast/case');
 const Error = require('../ast/error');
 const WhileStatement = require('../ast/while-statement');
 const ForStatement = require('../ast/for-statement');
@@ -36,7 +36,7 @@ const NoneLiteral = require('../ast/none-literal');
 const grammar = ohm.grammar(fs.readFileSync('./syntax/Scriptofino.ohm'));
 
 // Ohm turns `x?` into either [x] or [], which we should clean up for our AST.
-function unpack(a) {
+function arrayToNullable(a) {
   return a.length === 0 ? null : a[0];
 }
 
@@ -46,12 +46,11 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   Stmt_simple(statement, _) { return statement.ast(); },
   For(_1, id, _2, exps, suite) { return new ForStatement(id.ast(), exps.ast(), suite.ast()); },
   While(_, test, suite) { return new WhileStatement(test.ast(), suite.ast()); },
-  Conditional(_1, _2, firstTest, _3, firstSuite, _4, additionalTests,
-    additionalSuites, _5, finalSuite) {
-    const tests = [firstTest.ast(), ...additionalTests.ast()];
-    const bodies = [firstSuite.ast(), ...additionalSuites.ast()];
-    const cases = tests.map((test, index) => new Case(test, bodies[index]));
-    return new IfStatement(cases, unpack(finalSuite.ast()));
+  Conditional(_1, firstTest, firstSuite, _2, moreTests, moreSuites, _3, lastSuite) {
+    const tests = [firstTest.ast(), ...moreTests.ast()];
+    const consequents = [firstSuite.ast(), ...moreSuites.ast()];
+    const alternate = arrayToNullable(lastSuite.ast());
+    return new IfStatement(tests, consequents, alternate);
   },
   FuncDec(annotation, _1, _2, id, _3, params, _4, suite) {
     return new FunctionDeclaration(annotation.ast(), id.ast(), params.ast(), suite.ast());
@@ -59,14 +58,14 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   Annotation(id, _1, paramTypes, _2, resultTypes) {
     return new FunctionAnnotation(id.ast(), paramTypes.ast(), resultTypes.ast());
   },
-  Error(_1, _2, e, _3, _4) { return new Error(e.ast()); },
+  Error(_1, _2, e, _3, _4) { return new Error(e.sourceString); },
   // eslint-disable-next-line max-len
   VarConst(_1, t, v, _2, e) { return new VariableDeclaration(v.ast(), t.sourceString, e.ast(), false); },
   // eslint-disable-next-line max-len
   VarMutable(_1, t, v, _2, e) { return new VariableDeclaration(v.ast(), t.sourceString, e.ast(), true); },
   Assignment(v, _, e) { return new AssignmentStatement(v.ast(), e.ast()); },
   SimpleStmt_break(_) { return new BreakStatement(); },
-  SimpleStmt_return(_, e) { return new ReturnStatement(unpack(e.ast())); },
+  SimpleStmt_return(_, e) { return new ReturnStatement(arrayToNullable(e.ast())); },
   Suite_small(_1, statement, _2) { return [statement.ast()]; },
   Suite_large(_1, _2, _3, statements, _4) { return statements.ast(); },
   Exp_or(left, op, right) { return new BinaryExpression(op.ast(), left.ast(), right.ast()); },
@@ -83,8 +82,8 @@ const astGenerator = grammar.createSemantics().addOperation('ast', {
   Call(callee, _1, args, _2) { return new CallStatement(callee.ast(), args.ast()); },
   VarExp_subscripted(v, _1, e, _2) { return new SubscriptedExpression(v.ast(), e.ast()); },
   VarExp_simple(id) { return new IdentifierExpression(id.ast()); },
-  Param(id, _, exp) { return new Parameter(id.ast(), unpack(exp.ast())); },
-  Arg(id, _, exp) { return new Argument(unpack(id.ast()), exp.ast()); },
+  Param(id, _, exp) { return new Parameter(id.ast(), arrayToNullable(exp.ast())); },
+  Arg(id, _, exp) { return new Argument(arrayToNullable(id.ast()), exp.ast()); },
   KeyVal(id, _, exp) { return new KeyValue(id.ast(), exp.ast()); },
   ListType(_1, _2, type, _3) { return new ListTypeExpression(type.ast()); },
   TupleType(_1, _2, type, _3) { return new TupleTypeExpression(type.ast()); },

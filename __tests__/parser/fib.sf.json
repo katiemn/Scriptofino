@@ -1,5 +1,6 @@
 {
   "statements": [
+    {"ids": "n", "initializers": {"value": 0}, "isMutable": true, "type": ""},
     {
       "function": {"annotation": {"id": "fib", "paramTypes": ["num"], "resultTypes": ["num"]},
         "id": "fib",
@@ -18,18 +19,8 @@
         ]
       },
       "id": "fib"},
-    {
-      "args": [{
-          "expression": {"args": [{"expression": {"value": 5}, "id": null}], "callee":{"id": "fib"}},
-          "id": null
-      }],
-      "callee": {"id": "imprimir"}
-    }, 
-    {"args": [{"expression": {"args": [{"expression": {"value": 10},
-        "id": null}],
-        "callee":{"id": "fib"}},
-        "id": null}],
-      "callee": {"id": "imprimir"}
-    }
+      {
+        "args": [{"expression": {"value": 5}, "id": null}], "callee": {"id": "fib"}}, 
+        {"args": [{"expression": {"value": 10}, "id": null}], "callee": {"id": "fib"}}
   ]
 }

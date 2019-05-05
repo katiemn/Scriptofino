@@ -27,7 +27,7 @@ const fs = require('fs');
 const util = require('util');
 const yargs = require('yargs');
 const parse = require('./syntax/parser');
-// require('./backend/javascript-generator');
+require('./backend/javascript-generator');
 
 // If compiling from a string, return the AST, IR, or compiled code as a string.
 function compile(sourceCode, { astOnly, frontEndOnly, shouldOptimize }) {
@@ -42,9 +42,9 @@ function compile(sourceCode, { astOnly, frontEndOnly, shouldOptimize }) {
   if (frontEndOnly) {
     return util.inspect(program, { depth: null });
   }
-  // return program.gen();
-  console.log('Code generator is not yet implemented');
-  return 0; // Get rid of this when generator in place
+  return program.gen();
+  // console.log('Code generator is not yet implemented');
+  // return 0; // Get rid of this when generator in place
 }
 
 // If compiling from a file, write to standard output.

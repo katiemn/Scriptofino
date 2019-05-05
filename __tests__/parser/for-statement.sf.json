@@ -1,11 +1,18 @@
 {
     "statements": [{
-        "id": "n",
-        "expression": [{ "id": "numeros" }],
-        "body": [{
-            "returnValue": { "value": 3 }
-        }]
-    }]
+        "ids": "n", "initializers": {"value": 0}, "isMutable": true, "type": ""}, 
+        {"ids": "values", 
+            "initializers": {"members": [{"value": 4}, {"value": 6}, {"value": 8}]}, 
+            "isMutable": true, 
+            "type": ""
+        }, 
+        { "body": 
+            [{"sources": [{"left": {"subscript": {"id": "n"}, 
+                "variable": {"id": "values"}}, 
+                "op": "+", 
+                "right": {"value": 1}}], 
+                "targets": [{"subscript": {"id": "n"}, "variable": {"id": "values"}}]
+            }], "expression": [{"id": "values"}], "id": "n"
+        }
+    ]
 }
-            
-   

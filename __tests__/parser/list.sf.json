@@ -1,7 +1,7 @@
 {
     "statements": [
-        {
-            "function": {
+            { "ids": "x", "initializers": {"value": 1}, "isMutable": true, "type": ""},
+            { "function": {
                 "annotation": {"id": "list", "paramTypes": ["num"], "resultTypes": [{"elementType": "num", "name": "lista"}]},
                 "id": "list",
                 "params": [{"defaultExpression": null, "id": "x" }],

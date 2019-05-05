@@ -3,16 +3,19 @@
         "ids": "x",
         "initializers": {"value": 0}, "isMutable": false, "type": ""},
         {"ids": "y", "initializers": {"value": 0}, "isMutable": true, "type": ""},
-        {"cases": [{
-            "test": {"left": {"left": {"id": "x"}, "op": "es", "right": {"value": 0}}, 
-                     "op": "yy",  
-                     "right": {"left": {"id": "y"}, "op": "es", "right": {"value": 0}}
-                    },
-            "body": [{
-                "sources": [{"left": {"left":{"value": 3}, "op": "^", "right": {"value": 4}},"op": "+", "right": {"value": 22}}],
-                "targets": [{ "id": "y"}]
+        {"alternate": null, "consequents": [[
+            {"sources": [{"left": {"left": {"value": 3}, "op": "^", "right": {"value": 4}}, 
+                "op": "+", 
+                "right": {"value": 22}
+            }], 
+            "targets": [{"id": "y"}]}]], 
+            "tests": [{"members": [{"left": {"left": {"id": "x"}, 
+                "op": "es", 
+                "right": {"value": 0}}, 
+                "op": "yy", 
+                "right": {"left": {"id": "y"}, "op": "es", "right": {"value": 0}}}]
             }]
-        }],
-        "alternate": null
-    }]
+        }
+    ]
 }
+

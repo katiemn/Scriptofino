@@ -1,3 +1,4 @@
+la n = 0
 fib: num -> num
 llama fib(n):
     la a = 0
@@ -7,5 +8,5 @@ llama fib(n):
         b = a + b
     regresa a
 
-imprimir(fib(5))
-imprimir(fib(10))
+fib(5)
+fib(10)

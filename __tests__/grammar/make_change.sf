@@ -1,7 +1,8 @@
+la amount = 0
 make_change: num -> lista(num)
 llama make_change(amount):
     si (amount es 0):
-        regresa [0, 0, 0, 0]
+        regresa [0,0,0,0]
     
     si (amount < 0):
         echar nuevo Error("Amount cannot be negative")

@@ -40,7 +40,7 @@ Scriptofino {
   Loop        =  For | While
   For         =  "para" id "en" Exps Suite
   While       =  "mientras" Exp Suite
-  Conditional =  "si" "("Exp")" Suite ("sinosi" Exp Suite)* ("sino" Suite)?
+  Conditional =  "si" Exp Suite ("sinosi" Exp Suite)* ("sino" Suite)?
   FuncDec     =  Annotation newline "llama" id "("Params")" Suite
   Annotation  =  id ":" ParamType "->" ParamType
   ParamType   =  NonemptyListOf<Type, ",">
