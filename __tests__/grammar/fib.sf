@@ -1,7 +1,7 @@
 la x = 0
 fib: num -> num
 llama fib(x):
-    si (x > 0):
+    si x > 0:
         regresa fib(x-1)
     sino:
         regresa x
