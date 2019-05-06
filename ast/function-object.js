@@ -1,5 +1,5 @@
 const Variable = require('../ast/variable');
-const Type = require('../ast/type');
+const Type = require('./type');
 
 module.exports = class FunctionObject {
   constructor(annotation, id, params, suite) {
@@ -24,15 +24,14 @@ module.exports = class FunctionObject {
     }
     const childContext = context.createChildContextForFunctionBody(this);
     this.params.forEach((param, index) => {
-      // console.log(`${this.annotation.paramTypes[index]}`);
-      // eslint-disable-next-line max-len
-      const variable = new Variable(param.id, Type.forName(this.annotation.paramTypes[index]), true);
+      const variable = new Variable(param.id,
+        Type.forName(this.annotation.paramTypes[index]), false);
       this.params[index] = variable;
       context.add(variable);
     });
 
     if (this.suite) {
-      this.suite.forEach(s => s.analyze(context));
+      this.suite.forEach(s => s.analyze(childContext));
     }
   }
 };
