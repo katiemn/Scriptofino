@@ -1,0 +1,8 @@
+la x = 6
+la y = 5
+sumar: num, num -> num
+llama sumar(z, a):
+    regresa z + a
+
+la num result = sumar(6, 5)
+imprimir(result)
