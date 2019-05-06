@@ -1,4 +1,4 @@
-// const Variable = require('../ast/variable');
+const Variable = require('../ast/variable');
 
 module.exports = class FunctionObject {
   constructor(annotation, id, params, suite) {
@@ -21,12 +21,12 @@ module.exports = class FunctionObject {
     if (JSON.stringify(paramTypes) !== JSON.stringify(['nada']) && this.params.length !== paramTypes.length) {
       throw new Error('Number of parameters do not match');
     }
-    // const childContext = context.createChildContextForFunctionBody(this);
-    // this.params.forEach((param, index) => {
-    //   const variable = new Variable(param.id, this.annotation.paramTypes[index], false);
-    //   this.params[index] = variable;
-    //   childContext.add(variable);
-    // });
+    const childContext = context.createChildContextForFunctionBody(this);
+    this.params.forEach((param, index) => {
+      const variable = new Variable(param.id, this.annotation.paramTypes[index], false);
+      this.params[index] = variable;
+      childContext.add(variable);
+    });
 
     if (this.suite) {
       this.suite.forEach(s => s.analyze(context));
