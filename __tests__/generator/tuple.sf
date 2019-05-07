@@ -1,0 +1,3 @@
+la tuple info = ("katie", 21, "portland")
+la age = info[1]
+imprimir(age)
