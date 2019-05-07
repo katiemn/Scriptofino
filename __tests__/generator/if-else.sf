@@ -1,0 +1,5 @@
+la x = 22
+si x no es 22:
+    imprimir("yay")
+sino:
+    imprimir("la cara triste")

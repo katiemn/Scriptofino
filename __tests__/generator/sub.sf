@@ -1,0 +1,6 @@
+sub: num, num -> num
+llama sub(x, y):
+    regresa x - y
+
+la num result = sub(6, 5)
+imprimir(result)
