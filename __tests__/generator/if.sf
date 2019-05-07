@@ -1,0 +1,3 @@
+la x = 22
+si x es 22:
+    imprimir("!!!¡¡¡")
