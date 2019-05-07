@@ -136,14 +136,18 @@ Object.assign(Error.prototype, {
 
 Object.assign(ForStatement.prototype, {
   gen() {
-    const statements = this.body.statements.map(s => s.gen()).join('');
-    if (this.expression.type.name === 'tuple') {
-      return `${this.expression.gen()}.forEach((${jsName(this.id)}) => {${statements}});`;
-    // eslint-disable-next-line no-else-return
-    } else if (this.expression.type.name === 'diccionario') {
-      return `for (const ${jsName(this.id)} in ${this.expression.gen()}) {${statements}}`;
-    }
-    return '';
+    // const statements = this.body.map(s => s.gen()).join('');
+    // if (this.expression.type.name === 'tuple') {
+    //   return `${this.expression.gen()}.forEach((${jsName(this.id)}) => {${statements}});`;
+    // // eslint-disable-next-line no-else-return
+    // } else if (this.expression.type.name === 'diccionario') {
+    //   return `for (const ${jsName(this.id)} in ${this.expression.gen()}) {${statements}}`;
+    // }
+    // return '';
+    // const ids = this.ids.map(i => i.gen());
+    const expression = this.expression.map(e => e.gen());
+    const body = this.body.map(b => b.gen());
+    return `for (${jsName(this.id)} = 0; ${jsName(this.id)} < ${expression}.length; ${jsName(this.id)}++) {${body}}`;
   },
 });
 

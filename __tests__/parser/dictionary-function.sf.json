@@ -2,7 +2,7 @@
     [{"function": 
         {"annotation": {"id": "func", 
             "paramTypes": ["nada"], 
-            "resultTypes": [{"keyType": "string", "name": "diccionario", "valueType": "num"}]
+            "resultTypes": [{"keyType": "string", "name": "diccionario", "type": "diccionario", "valueType": "num"}]
         }, 
         "id": "func", 
         "params": [], 

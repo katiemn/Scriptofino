@@ -1,6 +1,5 @@
 const Variable = require('./variable');
-const IdExpression = require('./identifier-expression');
-const DictionaryType = require('./dict-type');
+const Type = require('./type');
 
 module.exports = class ForStatement {
   constructor(id, expression, body) {
@@ -8,19 +7,9 @@ module.exports = class ForStatement {
   }
 
   analyze(context) {
-    const getIteratorType = (expression) => {
-      if (expression instanceof IdExpression) {
-        // eslint-disable-next-line no-param-reassign
-        expression = expression.referent;
-      }
-      if (expression.type instanceof DictionaryType) {
-        return expression.keyType;
-      }
-      return expression.elementType;
-    };
     this.expression.forEach(e => e.analyze(context));
     const bodyContext = context.createChildContextForLoop();
-    this.id = new Variable(this.id.id, getIteratorType(this.expression), false);
+    this.id = new Variable(this.id, Type.NUMBER, false);
     bodyContext.add(this.id);
     this.body.forEach(e => e.analyze(bodyContext));
   }

@@ -1,3 +1,3 @@
 la x = [3,22,7]
-la y = 0
+la lista y = 0
 la z = y[2]

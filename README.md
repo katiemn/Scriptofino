@@ -15,6 +15,104 @@ ScriptoFino is a simple scripting language that draws inspiration from Python. I
 - Function Annotations
 - Easy to Learn 
 
+## Grammar 
+```
+Scriptofino {
+  Program     =  newline* Stmt+ newline*
+  Stmt        =  SimpleStmt newline                          -- simple
+              |  Loop
+              |  Conditional
+              |  FuncDec
+              |  Error
+  SimpleStmt  =  VarDeclar
+              |  Assignment
+              |  Call                                        -- call
+              |  "rompe"                                     -- break
+              |  "regresa" Exp?                              -- return
+  Suite       = ":" SimpleStmt newline                       -- small
+              | ":" newline indent Stmt+ dedent              -- large
+
+  Exp         =  Exp "oo" Exp1                               -- or
+              |  Exp "yy" Exp1                               -- and
+              |  Exp1
+  Exp1        =  Exp2 relop Exp2                             -- binary
+              |  Exp2
+  Exp2        =  Exp2 addop Exp3                             -- binary
+              |  Exp3
+  Exp3        =  Exp3 mulop Exp4                             -- binary
+              |  Exp4
+  Exp4        =  prefixop Exp5                               -- unary
+              |  Exp5
+  Exp5        =  Exp5 "^" Exp6                               -- power
+              |  Exp6
+  Exp6        =  boollit
+              |  numlit
+              |  strlit
+              |  nonelit
+              |  "[" ListOf<Exp, ","> "]"                    -- list
+              |  "{" ListOf<KeyVal, ","> "}"                 -- dictionary
+              |  "(" NonemptyListOf<Exp, ","> ")"            -- tuple
+              |  Call
+              |  VarExp
+              |  "(" Exp ")"                                 -- parens
+
+  Loop        =  For | While
+  For         =  "para" id "en" Exps Suite
+  While       =  "mientras" Exp Suite
+  Conditional =  "si" Exp Suite ("sinosi" Exp Suite)* ("sino" Suite)?
+  FuncDec     =  Annotation newline "llama" id "("Params")" Suite
+  Annotation  =  id ":" ParamType "->" ParamType
+  ParamType   =  NonemptyListOf<Type, ",">
+  Error       =  "echar nuevo Error" "("strlit")" newline
+
+  VarDeclar   =  VarConst | VarMutable
+  VarConst    =  "el" (basicType | "lista" | "tuple" | "diccionario")? id "=" Exp
+  VarMutable  =  "la" (basicType | "lista" | "tuple" | "diccionario")? id "=" Exp
+  Assignment  =  VarExps "=" Exps
+  Call        =  VarExp "(" Args ")"
+
+  Exps        =  NonemptyListOf<Exp, ",">
+  Ids         =  NonemptyListOf<id, ",">
+  VarExp      =  VarExp "[" Exp "]"                          -- subscripted
+              |  id                                          -- simple
+  VarExps     =  NonemptyListOf<VarExp, ",">
+  Param       =  id ("=" Exp)?
+  Params      =  ListOf<Param, ",">
+  Arg         =  (id ":")? Exp
+  Args        =  ListOf<Arg, ",">
+  KeyVal      =  Exp ":" Exp
+  Type        =  ListType | TupleType | DictType | basicType
+  ListType    =  "lista" "("basicType")"
+  TupleType   =  "tuple" "("NonemptyListOf<basicType, ",">")"
+  DictType    =  "diccionario" "("basicType":"basicType")"
+
+  basicType   =  "string" | "boolean" | "num" | "nada" | "objecto"
+  keyword     =  (basicType | "mientras" | "para" | "si" | "sinosi" | "sino" | "llama" | "la" | "el"
+              |  "regresa" | "rompe" | "yy" | "oo" | "not" | "verdad" | "falso" | "echar nuevo Error"
+              | "es" | "no es" | "lista" | "tuple" | "diccionario" | "en") ~idrest
+  id          =  ~keyword ("_" | letter) idrest*
+  idrest      =  "_" | alnum
+  numlit      =  digit+ ("." digit+)? (("E" | "e") ("+" | "-")? digit+)?
+  boollit     =  "verdad" | "falso"
+  strlit      = "\"" (~"\\" ~"\"" ~"\n" any | escape)* "\""
+  nonelit     = "nada"
+  escape      = "\\" ("\\" | "\"" | "n")                     -- simple
+              | "\\u{" hexDigit+ "}"                         -- codepoint
+  addop       =  "+" | "-"
+  relop       =  "<=" | "<" | "es" | "no es" | ">=" | ">"
+  mulop       =  "*" | "/" | "%"
+  prefixop    =  "-" | "not"
+  indent      =  "⇨"
+  dedent      =  "⇦"
+
+  newline     =  "\n"+
+  space      :=  " " | "\t" | comment
+  comment     = "¡" ~"¡" (~"\n" ~"¡" any)*                   -- comment
+              |  multiline
+  multiline   = "¡!" (~"¡!" any)* "¡!"
+}
+```
+
 ## Examples
 
 #### Types
@@ -252,4 +350,4 @@ function info(name, age) {
 
 #### Work in Progress
 + Issues with calling calls within calls
-+ Issues with parameters being in scope when used within function context
++ Parenthesis are recognized as tuples, regardless of context 

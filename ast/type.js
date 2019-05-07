@@ -17,10 +17,12 @@ class Type {
   }
 
   isCompatibleWith(otherType) {
+    if (this === Type.OBJECT || otherType === Type.OBJECT) {
+      return true;
+    }
     return JSON.stringify(this) === JSON.stringify(otherType);
   }
 }
-
 Type.cache = {};
 Type.BOOLEAN = new Type('boolean');
 Type.NUMBER = new Type('num');

@@ -17,7 +17,7 @@ module.exports = class Call {
       if (argType !== 'objecto') {
         if (this.callee.referent.annotation.paramTypes[index] !== 'objecto') {
           if (JSON.stringify(argType)
-          !== JSON.stringify(this.callee.referent.annotation.paramTypes[index])) {
+            !== JSON.stringify(this.callee.referent.annotation.paramTypes[index])) {
             throw new Error('Type mismatch in args and params');
           }
         }

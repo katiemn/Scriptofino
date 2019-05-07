@@ -1,4 +1,4 @@
 la n = 0
-la values = [4, 6, 8]
+la lista values = [4, 6, 8]
 para n en values:
     values[n] = values[n] + 1

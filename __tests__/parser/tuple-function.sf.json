@@ -3,7 +3,7 @@
         {
             "function": {
                 "annotation": {"id": "func", "paramTypes": ["nada"], 
-                    "resultTypes": [{"elementType": ["num","string","num"], "name": "tuple"}]},
+                    "resultTypes": [{"elementType": ["num","string","num"], "name": "tuple", "type": "tuple"}]},
                 "id": "func",
                 "params": [],
                 "suite":[

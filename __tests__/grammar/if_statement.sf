@@ -1,4 +1,4 @@
-la num x = 10
-si (verdad):
+la x = 3
+si verdad:
     x = x + 5
     imprimir(x)
