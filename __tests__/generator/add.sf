@@ -1,5 +1,3 @@
-la x = 6
-la y = 5
 sumar: num, num -> num
 llama sumar(x, y):
     regresa x + y

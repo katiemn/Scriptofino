@@ -1,0 +1,4 @@
+la sum = 0
+la values = [4,5,7]
+para n en values: 
+    imprimir(values[n])
