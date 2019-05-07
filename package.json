@@ -8,8 +8,12 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint.js"
+    "lint": "eslint ."
   },
+  "eslintIgnore": [
+    "main.js",
+    "*.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/katiemn/Scriptofino.git"
