@@ -1,0 +1,3 @@
+la sum = 3 + 9
+la result = 5 * sum / 6
+imprimir(result)

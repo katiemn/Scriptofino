@@ -1,0 +1,11 @@
+fib: num -> num
+llama fib(n):
+    la a = 0
+    la b = 1
+    mientras b < n:
+        a = b
+        b = a + b
+    regresa a  
+
+la num f = fib(3)
+imprimir(f)

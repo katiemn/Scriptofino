@@ -1,0 +1,6 @@
+bienvenidos: string -> string
+llama bienvenidos(nombre):
+    imprimir("¡Bienvenidos!")
+    imprimir(nombre)
+
+bienvenidos("Katie")
