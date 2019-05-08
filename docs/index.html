@@ -26,28 +26,40 @@
 							<b><font size="12"><h2 class="title">What is Scriptofino?</h2></font></b>
                  			 <blockquote>
                     			<p class="blockquote blockquote-primary">
+                    			  ¡Este es un lenguaje de programación en español!
+
 			                      ScriptoFino is a simple scripting language that draws inspiration from Python. Scriptofino is designed to remove the cognitive dissonance between thinking in code and writing out its implementation. Additionally, SciptoFino is designed to mimic the natural syntax and structure of the Spanish language.
 			                      <br>
 			                      <br>
-			                      Some amazing features of Scriptofino include:
-			                      <ul>
-			                      	<li>Spanish keywords</li> 
-			                      	<li>Easy readability</li> 
-			                      	<li>Function indentation and annotations</li>
-			                      	<li>It's very easy to learn!</li>
-			                      </ul>
-					      Scriptifino will:
-				   	      <ul>
-						<li>Detects if a break statement is outside of a loop</li>
-						<li>Detects if a variable has already been binded</li>
-						<li>Detects if a function has the correct parameters and the correct number of parameters</li>
-						<li>Detects if an identifier has already been declared in scope and if an identifier has not been declared</li>
-						<li>Makes sure that a negative operator is only applied to numbers</li>
-						<li>Makes sure not is only applied to booleans</li>
-					      </ul>
+			                      Scriptifino wants to make your life easier, while adding a bit of Spanish flare to your code! Is your code too wordy? Too much of a hassle to read? Do you just not like using curly braces for every single function like we do? Well, we got your back! Scriptofino eliminates the use of curly braces! Are you the type who loses track of where your break statement ends? Scriptofino will alert you if your break is outside your loop.
+			                      <br>
+			                      <br>
+			                      Scriptofino is designed to make your life easier, while also teaching you some spanish words along the way
+				   	      		
 			                    </p>
 			                  </blockquote>
 			                </div>
+			                <section class="Special Features">
+			                	<b><font size="12"><h7 class="title">Amazing Features of Scriptofino</h7></font></b>
+			                	<blockquote>
+			                		<p class="blockquote blockquote-primary">
+			                      Scriptofino has some amazing built in functions such as:
+			                      <ul>
+			                      	<li><pre><code>imprimir(print): params - objecto</code></pre></li>
+			                      	<li><pre><code>piso(floor): params - num</code></pre></li>
+			                      </ul>
+					      Also included in Scriptofino are types!
+				   	      <ul>
+							<li>Boolean: <pre><code>verdad, falso</code></pre></li>
+							<li>Numbers: <pre><code>1, -382, 3.0</code></pre></li>
+							<li>Strings: <pre><code>"hello", "sofia", "¡scriptofino is cool!"</code></pre></li>
+							<li>Not: <pre><code>nada</code></pre></li>
+							<li>Objects: <pre><code>objecto</code></pre></li>
+							<li>Lists: <pre><code>["hello", "this", "is", "a", "list"]</code></pre></li>
+							<li>Dictionary: <pre><code>{"Hello": "Hola", "Goodbye": "Adiós"}</code></pre></li>
+					      </ul>
+			                    </p>
+			                	</blockquote>
 			                <section class="Examples">
 			                	<b><font size="12"><h3 class="title">Example Code</h3></font></b>
 			                	<font size="5"><h4 class="title">Hello World!</h4></font>
@@ -86,6 +98,15 @@ llama make_change(amount):
 
     la pennies = newAmount;
     regresa [quarters, dimes, nickels, pennies]</code></pre>
+    							<font size="5"><h8 class="title">Return Info</h8></font>
+    							<pre><code>
+info: string, num -> tuple(string, num)
+llama info(nombre, años):
+    regresa (nombre, años)
+
+la x = info("katie", 21)
+imprimir(x)
+</code></pre>
 
 
 				<!-- Footer -->
