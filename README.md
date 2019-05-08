@@ -163,78 +163,68 @@ modulus = 11 % 2
 #### Control Flow
 
 ##### `if` Statements
-ScriptoFino
 ```
-si (num es 3):
+si num es 3:
 
-si (verdad):
-```
-Python
-```
-if (num == 3):
-
-if (True):
+si verdad:
 ```
 
 ##### `for` Loops 
-ScriptoFino
 ```
-para i en rango(1, 100):
+para i en (1, "dos", 3):
 
-para num en numeros:
-```
-Python
-```
-for i in range(1, 100):
-
-for num in numbers:
+para n en numeros:
 ```
 
 ##### `while` Loops
-ScriptoFino
 ```
 mientras y > 3:
 ```
-Python
-```
-while y > 3:
-```
 
 ### Sample Programs
-Examples in ScriptoFino with JavaScript "translations"
 ```
 la x = 10
 si (verdad):
-    la x = x + 5
+    x = x + 5
     imprimir(x)
 ```
+Scriptofino
 ```
 hello_world: nada -> string
 llama hello_word():
     imprimir("Hello world")
+```
+JavaScript
+```
 
 function helloWorld(){
     console.log("Hello World!");
 };
 ```
-
+Scriptofino
 ```
 add: num, num -> num
 llama add(a, b):
     regresa a + b
+```
+JavaScript
+```
 
 function add(a, b){
     return a + b;
 };
 ```
-
+Scriptofino
 ```
 fib: num -> num
 llama fib(x):
-    si (x > 0):
+    si x > 0:
         regresa fib(x-1)
     sino: 
         regresa x
+```
+JavaScript
+```
 
 fib = (n) => {
     if (n > 0) {
@@ -244,14 +234,17 @@ fib = (n) => {
     }
 };  
 ```
-
+Scriptofino
 ```
 is_even: num -> boolean
 llama is_even(number):
-    si (number % 2 es 0):
+    si number % 2 es 0:
         regresa verdad
     sino:
         regresa falso
+```
+JavaScript
+```
 
 function isEven(number){
     if (number % 2 == 0){
@@ -265,10 +258,10 @@ function isEven(number){
 ```
 make_change: num -> lista(num)
 llama make_change(amount):
-    si (amount es 0):
+    si amount es 0:
         regresa [0, 0, 0, 0]
     
-    si (amount < 0):
+    si amount < 0:
         echar nuevo Error("Amount cannot be negative")
 
     la initAmount = amount
@@ -283,11 +276,12 @@ llama make_change(amount):
     la nickels = piso(newAmount/5)
     newAmount = newAmount % 5
 
-    la pennies = newAmount;
+    la pennies = newAmount
 
     regresa [quarters, dimes, nickels, pennies]
-
-
+```
+JavaScript
+```
 function makeChange(amount){
     
     if (amount === 0) {
@@ -315,17 +309,17 @@ function makeChange(amount){
     return [quarters, dimes, nickels, pennies];
 }
 ```
+Scriptofino
 ```
-la nombre = " "
-la años = 0
-
 info: string, num -> tuple(string, num)
 llama info(nombre, años):
     regresa (nombre, años)
 
 la x = info("katie", 21)
-
-
+imprimir(x)
+```
+JavaScript
+```
 function info(name, age) {
     return [name, age];
 }
