@@ -25,4 +25,10 @@ module.exports = class BinaryExpression {
       this.type = Type.NUMBER;
     }
   }
+
+  optimize() {
+    this.left = this.left.optimize();
+    this.right = this.right.optimize();
+    return this;
+  }
 };
