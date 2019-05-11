@@ -29,6 +29,8 @@ module.exports = class BinaryExpression {
   optimize() {
     this.left = this.left.optimize();
     this.right = this.right.optimize();
+    if (this.op === '+' && JSON.stringify(this.right.value) === '0') return this.left;
+    if (this.op === '+' && JSON.stringify(this.left.value) === '0') return this.right;
     return this;
   }
 };

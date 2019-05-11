@@ -14,4 +14,10 @@ module.exports = class AssignmentStatement {
       context.cannotRebindToConstantVariable(this.targets[i].id);
     });
   }
+
+  optimize() {
+    this.sources.forEach(e => e.optimize());
+    this.targets.forEach(v => v.optimize());
+    return this;
+  }
 };

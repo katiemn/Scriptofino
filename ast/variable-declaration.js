@@ -25,4 +25,8 @@ module.exports = class VariableDeclaration {
     }
     context.add(this.variables);
   }
+
+  optimize() {
+    return this;
+  }
 };

@@ -9,4 +9,8 @@ module.exports = class NumericLiteral {
     this.type = Type.NUMBER;
     return this;
   }
+
+  optimize() {
+    return this;
+  }
 };

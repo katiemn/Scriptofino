@@ -9,4 +9,9 @@ module.exports = class Program {
     const context = new Context({ parent: Context.INITIAL });
     this.statements.forEach(s => s.analyze(context));
   }
+
+  optimize() {
+    this.statements.forEach(s => s.optimize());
+    return this;
+  }
 };
