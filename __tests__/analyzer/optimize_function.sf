@@ -1,0 +1,7 @@
+lugares: string -> string
+llama lugares(lugar):
+    si lugar es "LA":
+        regresa ":)"
+    sino:
+        regresa ":("
+      

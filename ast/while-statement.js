@@ -14,7 +14,7 @@ module.exports = class WhileStatement {
 
   optimize() {
     this.test = this.test.optimize();
-    if (this.condition.value === false) {
+    if (this.test.value === false) {
       return null;
     }
     this.body.map(s => s.optimize()).filter(s => s !== null);

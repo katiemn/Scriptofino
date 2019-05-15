@@ -1,4 +1,3 @@
-la x = 0
 fib: num -> num
 llama fib(x):
     si x > 0:

@@ -1,4 +1,3 @@
-la n = 0
 fib: num -> num
 llama fib(n):
     la a = 0

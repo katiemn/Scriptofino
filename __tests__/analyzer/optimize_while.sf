@@ -1,0 +1,4 @@
+la color = "oro"
+mientras color es "azul":
+    color = "blanco" 
+
