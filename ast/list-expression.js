@@ -1,5 +1,4 @@
 const ListType = require('./list-type');
-// const Type = require('./type');
 
 module.exports = class ListExpression {
   constructor(members) {
@@ -11,14 +10,15 @@ module.exports = class ListExpression {
     const memType = this.members[0].type;
     this.members.forEach((mem) => {
       // eslint-disable-next-line max-len
-      // console.log(`${mem.type} ${memType}`);
       if (!mem.type.isCompatibleWith(memType)) {
         throw new Error('Type mismatch in list');
       }
     });
     this.type = new ListType(memType);
   }
+
+  optimize() {
+    this.members = this.members.map(member => member.optimize());
+    return this;
+  }
 };
-
-
-// Type.forName(this.annotation.paramTypes[index]), false);

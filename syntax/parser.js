@@ -8,7 +8,6 @@ const AssignmentStatement = require('../ast/assignment-statement');
 const BreakStatement = require('../ast/break-statement');
 const ReturnStatement = require('../ast/return-statement');
 const IfStatement = require('../ast/if-statement');
-// const Case = require('../ast/case');
 const Error = require('../ast/error');
 const WhileStatement = require('../ast/while-statement');
 const ForStatement = require('../ast/for-statement');

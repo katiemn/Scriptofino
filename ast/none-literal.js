@@ -4,4 +4,8 @@ module.exports = class NoneLiteral {
   analyze() {
     this.type = Type.NONE;
   }
+
+  optimize() {
+    return this;
+  }
 };

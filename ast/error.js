@@ -8,4 +8,8 @@ module.exports = class ErrorLiteral {
   analyze() {
     this.type = Type.ERROR;
   }
+
+  optimize() {
+    return this;
+  }
 };

@@ -14,4 +14,11 @@ module.exports = class ReturnStatement {
       // TODO Make sure function in context is result type nada
     }
   }
+
+  optimize() {
+    if (this.returnValue) {
+      this.returnValue = this.returnValue.optimize();
+    }
+    return this;
+  }
 };

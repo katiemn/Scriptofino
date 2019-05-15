@@ -9,4 +9,9 @@ module.exports = class Parameter {
     }
     context.add(this);
   }
+
+  optimize() {
+    this.defaultExpression = this.defaultExpression.optimize();
+    return this;
+  }
 };

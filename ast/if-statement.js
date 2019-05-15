@@ -13,4 +13,13 @@ module.exports = class IfStatement {
       this.alternate.forEach(s => s.analyze(context.createChildContextForBlock()));
     }
   }
+
+  optimize() {
+    this.tests.map(test => test.optimize());
+    this.consequents.forEach((block) => {
+      block.map(statement => statement.optimize().filter(s => s != null));
+    });
+    this.alternate = this.alternate ? this.alternate.optimize() : null;
+    return this;
+  }
 };

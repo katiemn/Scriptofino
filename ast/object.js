@@ -8,4 +8,8 @@ module.exports = class ObjectLiteral {
   analyze() {
     this.type = Type.OBJECT;
   }
+
+  optimize() {
+    return this;
+  }
 };

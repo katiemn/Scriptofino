@@ -6,4 +6,8 @@ module.exports = class Variable {
   analyze(context) {
     context.add(this);
   }
+
+  optimize() {
+    return this;
+  }
 };

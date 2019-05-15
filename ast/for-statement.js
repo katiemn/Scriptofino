@@ -13,4 +13,8 @@ module.exports = class ForStatement {
     bodyContext.add(this.id);
     this.body.forEach(e => e.analyze(bodyContext));
   }
+
+  optimize() {
+    return this;
+  }
 };

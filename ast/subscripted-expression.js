@@ -23,6 +23,10 @@ module.exports = class SubscriptedExpression {
       throw new Error('Subscripted Id must be tuple dictionary or list');
     }
   }
-};
 
-// this.variable.referent.type.name
+  optimize() {
+    this.variable = this.variable.optimize();
+    this.subscript = this.subscript.optimize();
+    return this;
+  }
+};

@@ -7,4 +7,8 @@ module.exports = class KeyValuePair {
     this.key.analyze(context);
     this.value.analyze(context);
   }
+
+  optimize() {
+    return this;
+  }
 };

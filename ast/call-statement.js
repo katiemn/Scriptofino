@@ -32,4 +32,10 @@ module.exports = class Call {
       }
     });
   }
+
+  optimize() {
+    this.callee = this.callee.optimize();
+    this.args.forEach(arg => arg.optimize());
+    return this;
+  }
 };

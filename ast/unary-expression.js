@@ -18,4 +18,15 @@ module.exports = class UnaryExpression {
     }
     this.type = this.operand.type;
   }
+
+  optimize() {
+    this.operand = this.operand.optimize();
+    if (this.op === 'not') {
+      return (!this.operand.value);
+    // eslint-disable-next-line no-else-return
+    } else if (this.op === '-') {
+      return (-this.operand.value);
+    }
+    return this;
+  }
 };

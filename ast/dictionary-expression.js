@@ -16,4 +16,8 @@ module.exports = class DictionaryExpression {
     });
     this.type = new DictionaryType(keyType, valType);
   }
+
+  optimize() {
+    return this;
+  }
 };

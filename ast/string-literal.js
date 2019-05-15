@@ -9,4 +9,8 @@ module.exports = class StringLiteral {
     this.type = Type.STRING;
     return this;
   }
+
+  optimize() {
+    return this;
+  }
 };

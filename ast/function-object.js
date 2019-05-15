@@ -34,4 +34,11 @@ module.exports = class FunctionObject {
       this.suite.forEach(s => s.analyze(childContext));
     }
   }
+
+  optimize() {
+    this.params.forEach(p => p.optimize());
+    this.suite.optimize();
+    this.suite = this.suite.filter(s => s !== null);
+    return this;
+  }
 };

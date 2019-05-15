@@ -13,4 +13,8 @@ module.exports = class TupleExpression {
     });
     this.type = new TupleType(memTypes);
   }
+
+  optimize() {
+    return this;
+  }
 };
